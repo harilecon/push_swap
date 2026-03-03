@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 08:51:24 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/03 09:37:08 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/03 11:17:08 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ s_stack	*create_stack(int argc, char **argv)
 	stack = malloc(sizeof(s_stack));
 	if(!stack)
 		return (NULL);
-	stack->value = malloc(sizeof(long *) * argc);
+	stack->value = malloc(sizeof(long *) * (argc - 1));
 	if (!stack->value)
 	{
 		free (stack);
 		return (NULL);
 	}
-	stack->size = argc;
-	while (i < argc)
+	stack->size = argc - 1;
+	while (i < (argc - 1))
 	{
 		stack->value[i] = ft_strlo(argv[i + 1]);
 		i++;
