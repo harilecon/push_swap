@@ -6,10 +6,11 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/16 14:52:32 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:45:37 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <endian.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -251,6 +252,54 @@ void	pb(t_liste **a, t_liste **b)
 	*b = tmp;
 }
 
+
+int	stack_size(t_liste	*liste)
+{
+	t_liste	*tmp;
+	int	i;
+
+	i = 0;
+	tmp = liste;
+	while (liste)
+	{
+		liste = liste->next;
+		i++;
+	}
+	return (i);
+}
+int	high_index(t_liste	*liste)
+{
+	t_liste	*tmp;
+	long	high;
+	int	i;
+
+	if (!liste)
+		return (0);
+
+	i = 0;
+	tmp = liste;
+	high = liste->value;
+
+	while (tmp)
+	{
+		if (tmp->next)
+		{
+			if (tmp->value > high)
+				high = tmp->value;
+		}
+		tmp = tmp->next;
+	}
+
+	while (liste)
+	{
+		i++;
+		if (high == liste->value)
+			return (i);
+		liste = liste->next;
+	}
+	return (i);
+}
+
 int	main(void)
 {
 	t_liste	*test;
@@ -258,7 +307,7 @@ int	main(void)
 	t_liste	*tmp;
 	long	i;
 	i = 0;
-	while (i < 2)
+	while (i < 5)
 	{
 		test = create_liste(i);
 		add_back(&lst, test);
@@ -272,6 +321,8 @@ int	main(void)
 		printf("%li\n", tmp->value);
 		tmp = tmp->next;
 	}
+	printf("\ntaille de la listre = %d\n", stack_size(lst));
+	printf("\nindice de la plus grande est  %d\n", high_index(lst));
 	while (lst)
 	{
 		tmp = lst->next;
