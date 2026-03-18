@@ -3,23 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/16 19:45:37 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/18 09:53:26 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <endian.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "push_swap.h"
 
-typedef struct	s_liste
-{
-	long	value;
-	struct s_liste	*next;
-	struct s_liste	*previous;
-}		t_liste;
 
 t_liste	*create_liste(long i)
 {
@@ -34,6 +28,7 @@ t_liste	*create_liste(long i)
 	node->previous = NULL;
 	return (node);
 }
+
 void add_back(t_liste **lst, t_liste *new_value)
 {
 	t_liste	*tmp;
@@ -56,201 +51,7 @@ void add_back(t_liste **lst, t_liste *new_value)
 	new_value->next = NULL;
 }
 
-void	sa(t_liste **a)
-{
-	t_liste	*first;
-	t_liste	*second;
 
-	if (!a || !(*a) || !(*a)->next)
-		return ;
-
-	first = *a;
-	second = (*a)->next;
-
-	first->previous = second;
-	first->next = second->next;
-
-	second->next = first;
-	second->previous = NULL;
-
-	*a = second;
-
-	if (first->next)
-		first->next->previous = first;
-}
-
-void	sb(t_liste **b)
-{
-	t_liste	*first;
-	t_liste	*second;
-
-	if (!b || !(*b) || !(*b)->next)
-		return ;
-
-	first = *b;
-	second = (*b)->next;
-
-	first->previous = second;
-	first->next = second->next;
-
-	second->next = first;
-	second->previous = NULL;
-
-	*b = second;
-
-	if (first->next)
-		first->next->previous = first;
-}
-void ss(t_liste **a, t_liste **b)
-{
-	sa(a);
-	sb(b);
-}
-
-void	ra(t_liste **a)
-{
-	t_liste	*last;
-	t_liste	*first;
-
-	if (!a || !*a || !(*a)->next)
-		return;
-
-	last = *a;
-	first = *a;
-
-	while (last->next)
-		last = last->next;
-
-	(*a) = (*a)->next;
-	(*a)->previous = NULL;
-
-	last->next = first;
-	first->previous = last;
-	first->next = NULL;
-}
-
-void	rb(t_liste **b)
-{
-	t_liste	*last;
-	t_liste	*first;
-
-	if (!b || !*b || !(*b)->next)
-		return;
-
-	last = *b;
-	first = *b;
-
-	while (last->next)
-		last = last->next;
-
-	(*b) = (*b)->next;
-	(*b)->previous = NULL;
-
-	last->next = first;
-	first->previous = last;
-	first->next = NULL;
-}
-void rr(t_liste **a, t_liste **b)
-{
-	ra(a);
-	rb(b);
-}
-
-void rra(t_liste **a)
-{
-	t_liste	*last;
-	t_liste	*b_last;
-
-	if (!a || !*a || !(*a)->next)
-		return ;
-
-	last = *a;
-
-	while (last->next)
-		last = last->next;
-
-	b_last = last->previous;
-	b_last->next = NULL;
-
-	last->next = *a;
-	last->previous = NULL;
-
-	(*a)->previous = last;
-	*a = last;
-}
-
-void rrb(t_liste **b)
-{
-	t_liste	*last;
-	t_liste	*b_last;
-
-	if (!b || !*b || !(*b)->next)
-		return ;
-
-	last = *b;
-
-	while (last->next)
-		last = last->next;
-
-	b_last = last->previous;
-	b_last->next = NULL;
-
-	last->next = *b;
-	last->previous = NULL;
-
-	(*b)->previous = last;
-	*b = last;
-}
-
-void	rrr(t_liste **a, t_liste **b)
-{
-	rra(a);
-	rrb(b);
-}
-
-void	pa(t_liste **a, t_liste **b)
-{
-	t_liste	*tmp;
-
-	if (!a || !b || !*b)
-		return ;
-
-	tmp = *b;
-
-	*b = (*b)->next;
-	if (*b)
-		(*b)->previous = NULL;
-
-	tmp->next = *a;
-	tmp->previous = NULL;
-
-	if (*a)
-		(*a)->previous = tmp;
-
-	*a = tmp;
-}
-
-void	pb(t_liste **a, t_liste **b)
-{
-	t_liste	*tmp;
-
-	if (!b || !a || !*a)
-		return ;
-	tmp = *a;
-
-	*a = (*a)->next;
-
-	if (*a)
-		(*a)->previous = NULL;
-
-	tmp->next = *b;
-	tmp->previous = NULL;
-
-	if (*b)
-		(*b)->previous = tmp;
-
-	*b = tmp;
-}
 
 
 int	stack_size(t_liste	*liste)
@@ -267,6 +68,7 @@ int	stack_size(t_liste	*liste)
 	}
 	return (i);
 }
+
 int	high_index(t_liste	*liste)
 {
 	t_liste	*tmp;
@@ -300,12 +102,44 @@ int	high_index(t_liste	*liste)
 	return (i);
 }
 
-int	main(void)
+long	char_lo(char *str)
 {
+	int		signe;
+	int		i;
+	long	nb;
+
+	signe = 1;
+	i = 0;
+	if (!str)
+		return (0);
+	if (str[0] == '-')
+	{
+		signe = -1;
+		i = 1;
+	}
+	nb = 0;
+	while (str[i] && ((str[i]>= '0') && (str[i] <= '9')))
+	{
+		nb = nb * 10 + str[i] - '0';
+		i++;
+	}
+	return (nb * signe);
+}
+
+/*
+int	main(int argc, char **argv)
+{
+
 	t_liste	*test;
 	t_liste	*lst = NULL;
 	t_liste	*tmp;
 	long	i;
+
+	if (argc <= 1)
+	{
+		printf("error argument value\n");
+		return (1);
+	}
 	i = 0;
 	while (i < 5)
 	{
@@ -330,4 +164,11 @@ int	main(void)
 		lst = tmp;
 	}
 	return (0);
+}
+*/
+
+
+int main(int argc, char **argv)
+{
+
 }
