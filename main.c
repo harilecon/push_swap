@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/19 16:15:59 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 06:02:02 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,19 @@ int	main(int argc, char **argv)
 		i++;
 	}
 
-	buble(&lst);
+//	buble(&lst);
 //	insertion(&lst);
 //	printf("size = %d\n",stack_size(lst));
+//	printf("%li", greatest(lst));
+	int size = stack_size(lst);
+	int *tab = indexation(lst);
+
+	for (int i = 0; i < size; i++)
+	{
+		printf("%d ",tab[i]);
+	}
+//	printf("\n");
+	printf_stack(lst, "");
 	while (lst)
 	{
 		tmp = lst->next;

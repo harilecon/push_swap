@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/19 15:26:07 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 05:53:44 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,15 @@ int		high_index(t_liste	*liste);
 int		stack_size(t_liste	*liste);
 long	char_lo(char *str);
 t_liste	*create_liste(long i);
+
+long	greatest(t_liste	*stack);
 void insertion(t_liste **stack);
 
+int	power(long nb);
 void	printf_stack(t_liste	*tmp, char *str);
 int	low_index(t_liste	*liste);
 void	buble(t_liste	**stack);
+
+int	*indexation(t_liste	*stack);
 
 #endif // PUSH_SWAP_H
