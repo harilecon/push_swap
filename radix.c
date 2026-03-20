@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/20 07:19:25 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 13:33:40 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,142 @@ int	max_bits(t_liste *stack)
 		bits++;
 	return (bits);
 }
+
+void radix(t_liste **stack)
+{
+	t_liste	*b;
+	int		i;
+	int		j;
+	int		size;
+	int		max;
+
+	b = NULL;
+	i = 0;
+	max = max_bits(*stack);
+
+	while (i < max)
+	{
+		j = 0;
+		size = stack_size(*stack);
+
+		while (j < size)
+		{
+			if ((((*stack)->index >> i) & 1) == 0)
+			pb(stack, &b);
+			else
+			ra(stack);
+			j++;
+		}
+
+		while (b)
+		pa(stack, &b);
+
+		i++;
+	}
+	printf_stack(*stack , "a le stack a apres manipulaion");
+}
+
+
+/*
+void radix(t_liste **stack)
+{
+	t_liste	*a;
+	t_liste	*b;
+	int		i;
+	int		j;
+	int		size;
+	int		max;
+
+
+	a = *stack;
+	b = NULL;
+	i = 0;
+	max = max_bits(*stack);
+	while(i < max)
+	{
+		j = 0;
+		size = stack_size(a);
+		while(i < size)
+		{
+			if (((a->index >> i) & 1) == 0)
+				pb(&a, &b);
+			else
+				ra(&a);
+			j++;
+		}
+
+		while (b)
+		{
+			pa(&a, &b);
+		}
+		i++;
+	}
+}
+*/
+/*
+void radix(t_liste **a)
+{
+	t_liste	*b;
+	int		i;
+	int		j;
+	int		size;
+	int		max;
+
+	b = NULL;
+	i = 0;
+	max = max_bits(*a);
+
+	while (i < max)
+	{
+		j = 0;
+		size = stack_size(*a);
+
+		while (j < size)
+		{
+			if ((((*a)->index >> i) & 1) == 0)
+				pb(a, &b);
+			else
+				ra(a);
+			j++;
+		}
+
+		while (b)
+			pa(a, &b);
+
+		i++;
+	}
+}
+
+void radix(t_liste **stack)
+{
+	t_liste	*b;
+	int		i;
+	int		j;
+	int		size;
+	int		max;
+
+	b = NULL;
+	i = 0;
+	max = max_bits(*stack);
+
+	while (i < max)
+	{
+		j = 0;
+		size = stack_size(*stack);
+
+		while (j < size)
+		{
+			if ((((*stack)->index >> i) & 1) == 0)
+				pb(stack, &b);
+			else
+				ra(stack);
+			j++;
+		}
+
+		while (b)
+			pa(stack, &b);
+
+		i++;
+	}
+}
+*/
