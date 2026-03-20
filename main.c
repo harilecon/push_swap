@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/20 06:02:02 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 06:52:51 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ int	main(int argc, char **argv)
 //	printf("size = %d\n",stack_size(lst));
 //	printf("%li", greatest(lst));
 	int size = stack_size(lst);
-	int *tab = indexation(lst);
+	indexation(&lst);
 
-	for (int i = 0; i < size; i++)
-	{
-		printf("%d ",tab[i]);
-	}
+	// for (int i = 0; i < size; i++)
+	// {
+	// 	printf("%d ",tab[i]);
+	// }
 //	printf("\n");
+
+	printf_stack_index(lst, "");
 	printf_stack(lst, "");
 	while (lst)
 	{

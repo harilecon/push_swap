@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:36:03 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/19 15:25:22 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 06:50:24 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ void	printf_stack(t_liste	*tmp, char *str)
 	while (tmp)
 	{
 		printf("%li ", tmp->value);
+		tmp = tmp->next;
+	}
+	printf("\n\n");
+}
+
+void	printf_stack_index(t_liste	*tmp, char *str)
+{
+	printf("%s\n", str);
+	while (tmp)
+	{
+		printf("%d ", tmp->index);
 		tmp = tmp->next;
 	}
 	printf("\n\n");
