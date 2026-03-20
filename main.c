@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/20 06:52:51 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 07:17:54 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(int argc, char **argv)
 
 	printf_stack_index(lst, "");
 	printf_stack(lst, "");
+	printf("max bits = %d\n", max_bits (lst));
 	while (lst)
 	{
 		tmp = lst->next;

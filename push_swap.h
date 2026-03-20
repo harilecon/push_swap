@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/20 06:52:10 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 07:15:55 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	power(long nb);
 void	printf_stack(t_liste	*tmp, char *str);
 int	low_index(t_liste	*liste);
 void	buble(t_liste	**stack);
-
+int	max_bits(t_liste *stack);
 void	indexation(t_liste **stack);
 
 #endif // PUSH_SWAP_H

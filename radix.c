@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/20 06:55:06 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/20 07:19:25 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,24 @@ void	indexation(t_liste	**stack)
 		tmp->index = j;
 		tmp = tmp->next;
 	}
+}
+
+int	max_bits(t_liste *stack)
+{
+	int	bits;
+	int	max;
+	t_liste	*tmp;
+
+	tmp = stack;
+	bits = 0;
+	max = stack->index;
+	while (tmp)
+	{
+		if (tmp->index > max)
+			max = tmp->index;
+		tmp = tmp->next;
+	}
+	while ((max >> bits) != 0)
+		bits++;
+	return (bits);
 }
