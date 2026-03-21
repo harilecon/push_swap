@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_stack.c                                     :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 08:36:03 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/21 09:02:26 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/03/21 08:06:51 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/03/21 13:36:42 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+
+
+
+/*
+
+
 #include <stdio.h>
 
-void	printf_stack(t_liste	*tmp, char *str)
+int	main(void)
 {
-	printf("%s", str);
-	while (tmp)
-	{
-		printf("%li ", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("\n\n");
+	int value = 5;
+	int test;
+	int	i = 0;
+
+//	test = ((value >> 1) & 1);
+	test = ~test;
+	printf("%d", test);
+
+//	printf("%d\n", i);
+	return (0);
 }
 
-void	printf_stack_index(t_liste	*tmp, char *str)
-{
-	printf("%s\n", str);
-	while (tmp)
-	{
-		printf("%d ", tmp->index);
-		tmp = tmp->next;
-	}
-	printf("\n\n");
-}
+*/

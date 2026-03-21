@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/20 07:27:54 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/21 13:34:48 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct	s_liste
 {
-	int		index;
-	long	value;
+	unsigned int	index;
+	long			value;
 	struct s_liste	*next;
 	struct s_liste	*previous;
 }		t_liste;
@@ -48,8 +48,10 @@ int	power(long nb);
 void	printf_stack(t_liste	*tmp, char *str);
 int	low_index(t_liste	*liste);
 void	buble(t_liste	**stack);
-int	max_bits(t_liste *stack);
+unsigned int	max_bits(t_liste *stack);
 void	indexation(t_liste **stack);
 void radix(t_liste **stack);
+int	check_order(t_liste *stack);
+void	range(t_liste **stack);
 
 #endif // PUSH_SWAP_H

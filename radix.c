@@ -6,11 +6,12 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/20 13:33:40 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/21 10:26:06 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 long	greatest(t_liste	*stack)
 {
@@ -53,12 +54,15 @@ void	indexation(t_liste	**stack)
 	}
 }
 
-int	max_bits(t_liste *stack)
+unsigned int	max_bits(t_liste *stack)
 {
-	int	bits;
-	int	max;
+
+	unsigned int	bits;
+	unsigned int	max;
 	t_liste	*tmp;
 
+	if (!stack)
+		return (0);
 	tmp = stack;
 	bits = 0;
 	max = stack->index;
@@ -68,146 +72,80 @@ int	max_bits(t_liste *stack)
 			max = tmp->index;
 		tmp = tmp->next;
 	}
-	while ((max >> bits) != 0)
+	while ((bits < 32) && ((max >> bits) != 0))
 		bits++;
 	return (bits);
 }
 
-void radix(t_liste **stack)
+int	check_order(t_liste *stack)
 {
-	t_liste	*b;
-	int		i;
-	int		j;
-	int		size;
-	int		max;
+	unsigned int	value;
 
-	b = NULL;
-	i = 0;
-	max = max_bits(*stack);
+	if (!stack)
+		return (0);
 
-	while (i < max)
+	while (stack->next)
 	{
-		j = 0;
-		size = stack_size(*stack);
-
-		while (j < size)
-		{
-			if ((((*stack)->index >> i) & 1) == 0)
-			pb(stack, &b);
-			else
-			ra(stack);
-			j++;
-		}
-
-		while (b)
-		pa(stack, &b);
-
-		i++;
+		if (stack->index > stack->next->index)
+			return (1);
+		stack = stack->next;
 	}
-	printf_stack(*stack , "a le stack a apres manipulaion");
+	return(0);
 }
 
-
-/*
-void radix(t_liste **stack)
+void	radix(t_liste **stack)
 {
-	t_liste	*a;
-	t_liste	*b;
-	int		i;
-	int		j;
-	int		size;
-	int		max;
+	t_liste			*a;
+	t_liste			*b;
+	int				i;
+	int				j;
+	int				bits;
+	int				size;
 
-
+	indexation(stack);
+	i = 0;
 	a = *stack;
 	b = NULL;
-	i = 0;
-	max = max_bits(*stack);
-	while(i < max)
+	bits = max_bits(a);
+	int ra_compte = 0;
+
+	if(!bits)
 	{
+		printf("herreur qlq part");
+		return ;
+	}
+
+
 		j = 0;
 		size = stack_size(a);
-		while(i < size)
+
+		while (j < bits)
 		{
-			if (((a->index >> i) & 1) == 0)
-				pb(&a, &b);
-			else
-				ra(&a);
+			i = 0;
+			while (i < size)
+			{
+				if (((a->index >> j) & 1) == 0)
+				{
+					printf("pb\n");
+					pb(&a, &b);
+				}
+				else
+				{
+					printf("ra\n");
+					ra(&a);
+				}
+				i++;
+			}
+			while (b)
+			{
+				printf("pa\n");
+				pa(&a, &b);
+			}
+
 			j++;
 		}
 
-		while (b)
-		{
-			pa(&a, &b);
-		}
-		i++;
-	}
+	// printf_stack(a, "le stack a = ");
+	// printf_stack(b, "le stack b = ");
+	*stack = a;
 }
-*/
-/*
-void radix(t_liste **a)
-{
-	t_liste	*b;
-	int		i;
-	int		j;
-	int		size;
-	int		max;
-
-	b = NULL;
-	i = 0;
-	max = max_bits(*a);
-
-	while (i < max)
-	{
-		j = 0;
-		size = stack_size(*a);
-
-		while (j < size)
-		{
-			if ((((*a)->index >> i) & 1) == 0)
-				pb(a, &b);
-			else
-				ra(a);
-			j++;
-		}
-
-		while (b)
-			pa(a, &b);
-
-		i++;
-	}
-}
-
-void radix(t_liste **stack)
-{
-	t_liste	*b;
-	int		i;
-	int		j;
-	int		size;
-	int		max;
-
-	b = NULL;
-	i = 0;
-	max = max_bits(*stack);
-
-	while (i < max)
-	{
-		j = 0;
-		size = stack_size(*stack);
-
-		while (j < size)
-		{
-			if ((((*stack)->index >> i) & 1) == 0)
-				pb(stack, &b);
-			else
-				ra(stack);
-			j++;
-		}
-
-		while (b)
-			pa(stack, &b);
-
-		i++;
-	}
-}
-*/
