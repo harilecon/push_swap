@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:36:03 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/21 09:02:26 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/22 11:49:52 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	printf_stack(t_liste	*tmp, char *str)
 	}
 	printf("\n\n");
 }
-
+	
 void	printf_stack_index(t_liste	*tmp, char *str)
 {
 	printf("%s\n", str);

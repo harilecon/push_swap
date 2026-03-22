@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/21 13:35:26 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/22 14:14:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	main(int argc, char **argv)
 		i++;
 	}
 
-	range(&lst);
+	//range(&lst);
 	// buble(&lst);
 //	insertion(&lst);
-//	radix(&lst);
+	radix(&lst);
 //	printf("size = %d\n",stack_size(lst));
 // //	printf("%li", greatest(lst));
 // 	int size = stack_size(lst);
