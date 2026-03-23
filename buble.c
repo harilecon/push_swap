@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:22:34 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 13:35:23 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 13:57:13 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,40 @@
 
 void	buble(t_liste	**stack)
 {
-	int	size;
-	int	i;
-	int	ra_move;
-	t_liste	*a = *stack;
-	t_liste	*b = NULL;
+	int		size;
+	int		i;
+	int		ra_move;
+	t_liste	*a;
+	t_liste	*b;
+
+	a = *stack;
+	b = NULL;
 	i = 0;
 	size = stack_size(*stack);
-
 	ra_move = 0;
-
 	while (i < size - 1)
 	{
-			if (!(a)->next)
-				return ;
-			if ((a)->next->value > (a)->value)
-			{
-				sa(&a);
-				ft_printf("sa\n");
-			}
-
-			if (i < size - 1)
-			{
-				ra_move++;
-				ra(&a);
-				ft_printf("ra\n");
-			}
-			if (ra_move == size - 1)
-			{
-				pb(&a, &b);
-				ft_printf("pb\n");
-				ra_move = 0;
-				size--;
-				i = -1;
-			}
+		if (!(a)->next)
+			return ;
+		if ((a)->next->value > (a)->value)
+		{
+			sa(&a);
+			ft_printf("sa\n");
+		}
+		if (i < size - 1)
+		{
+			ra_move++;
+			ra(&a);
+			ft_printf("ra\n");
+		}
+		if (ra_move == size - 1)
+		{
+			pb(&a, &b);
+			ft_printf("pb\n");
+			ra_move = 0;
+			size--;
+			i = -1;
+		}
 		i++;
 	}
 	ft_printf("pb\n");
