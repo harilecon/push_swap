@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:28:36 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:03:35 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 14:58:42 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,46 +70,4 @@ void	ra(t_liste **a)
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
-}
-
-void	rb(t_liste **b)
-{
-	t_liste	*last;
-	t_liste	*first;
-
-	if (!b || !*b || !(*b)->next)
-		return ;
-	last = *b;
-	first = *b;
-	while (last->next)
-		last = last->next;
-	(*b) = (*b)->next;
-	(*b)->previous = NULL;
-	last->next = first;
-	first->previous = last;
-	first->next = NULL;
-}
-
-void	rr(t_liste **a, t_liste **b)
-{
-	ra(a);
-	rb(b);
-}
-
-void	rra(t_liste **a)
-{
-	t_liste	*last;
-	t_liste	*b_last;
-
-	if (!a || !*a || !(*a)->next)
-		return ;
-	last = *a;
-	while (last->next)
-		last = last->next;
-	b_last = last->previous;
-	b_last->next = NULL;
-	last->next = *a;
-	last->previous = NULL;
-	(*a)->previous = last;
-	*a = last;
 }

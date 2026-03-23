@@ -6,24 +6,11 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:07:43 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 15:08:31 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_liste	*create_liste(long i)
-{
-	t_liste	*node;
-
-	node = malloc(sizeof(t_liste));
-	if (!node)
-		return (NULL);
-	node->value = i;
-	node->next = NULL;
-	node->previous = NULL;
-	return (node);
-}
 
 void	add_back(t_liste **lst, t_liste *new_value)
 {
@@ -88,39 +75,11 @@ int	high_index(t_liste	*liste)
 	return (i);
 }
 
-long	char_lo(char *str)
+static int	low_value(t_liste *liste)
 {
-	int		signe;
-	int		i;
-	long	nb;
+	unsigned	low;
+	t_liste		*tmp;
 
-	signe = 1;
-	i = 0;
-	if (!str)
-		return (0);
-	if (str[0] == '-')
-	{
-		signe = -1;
-		i = 1;
-	}
-	nb = 0;
-	while (str[i] && ((str[i] >= '0') && (str[i] <= '9')))
-	{
-		nb = nb * 10 + str[i] - '0';
-		i++;
-	}
-	return (nb * signe);
-}
-
-int	low_index(t_liste *liste)
-{
-	t_liste	*tmp;
-	long	low;
-	int		i;
-
-	if (!liste)
-		return (0);
-	i = 0;
 	tmp = liste;
 	low = liste->value;
 	while (tmp)
@@ -132,6 +91,30 @@ int	low_index(t_liste *liste)
 		}
 		tmp = tmp->next;
 	}
+	return (low);
+}
+
+unsigned int	low_index(t_liste *liste)
+{
+//	t_liste	*tmp;
+	long	low;
+	int		i;
+
+	if (!liste)
+		return (0);
+	i = 0;
+	// tmp = liste;
+	// low = liste->value;
+	// while (tmp)
+	// {
+	// 	if (tmp)
+	// 	{
+	// 		if (tmp->value < low)
+	// 			low = tmp->value;
+	// 	}
+	// 	tmp = tmp->next;
+	// }
+	low = low_value(liste);
 	while (liste)
 	{
 		i++;

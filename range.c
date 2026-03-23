@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:22:55 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 14:56:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,58 +20,69 @@ int	chunck_size(t_liste **stack)
 	return (size / 10);
 }
 
-void	range(t_liste	**stack)
+static void	for_a(t_liste **a, t_liste **b)
 {
-	t_liste			*a;
-	t_liste			*b;
 	unsigned int	i;
-	int				j;
-	unsigned int	nb_rb;
-	int				size;
 	unsigned int	chunck;
-	unsigned int	high;
 
-	indexation(stack);
-	chunck = chunck_size(stack);
+	chunck = chunck_size(a);
 	i = 0;
-	a = *stack;
-	size = stack_size(a);
-	j = 0;
-	b = NULL;
-	while (a)
+	while (*a)
 	{
-		if (a->index <= (i + 1) * chunck)
+		if ((*a)->index <= (i + 1) * chunck)
 		{
 			ft_printf("pb\n");
-			pb(&a, &b);
+			pb(a, b);
 		}
 		else
 		{
 			ft_printf("ra\n");
-			ra(&a);
+			ra(a);
 		}
-		j++;
-		if (stack_size(b) >= (i + 1) * chunck)
+		if (stack_size(*b) >= (i + 1) * chunck)
 			i++;
 	}
+}
+
+static void	for_b(t_liste **a, t_liste **b)
+{
+	unsigned int	high;
+	unsigned int	nb_rb;
+
 	nb_rb = 0;
-	while (b)
+	while (*b)
 	{
-		high = high_index(b);
+		high = high_index(*b);
 		while (nb_rb < high - 1)
 		{
 			ft_printf("rb\n");
-			rb(&b);
+			rb(b);
 			nb_rb++;
 		}
 		ft_printf("pa\n");
-		pa(&a, &b);
+		pa(a, b);
 		while (nb_rb)
 		{
 			ft_printf("rrb\n");
-			rrb(&b);
+			rrb(b);
 			nb_rb--;
 		}
 	}
+}
+
+void	range(t_liste	**stack)
+{
+	t_liste			*a;
+	t_liste			*b;
+	int				size;
+
+	indexation(stack);
+	a = *stack;
+	size = stack_size(a);
+	b = NULL;
+	if (a)
+		for_a(&a, &b);
+	if (b)
+		for_b(&a, &b);
 	*stack = a;
 }

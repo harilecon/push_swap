@@ -6,7 +6,7 @@
 #    By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/23 14:09:05 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/23 14:59:14 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC =	buble.c\
 		move_01.c\
 		move_02.c\
 		move_03.c\
+		move_04.c\
 		radix.c\
 		range.c\
 		main.c

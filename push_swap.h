@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:17:09 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 15:03:14 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ long			greatest(t_liste	*stack);
 long			char_lo(char *str);
 int				check_order(t_liste *stack);
 int				high_index(t_liste	*liste);
-int				low_index(t_liste	*liste);
 int				power(long nb);
+unsigned int	low_index(t_liste *liste);
 unsigned int	max_bits(t_liste *stack);
 unsigned int	stack_size(t_liste	*liste);
 void			sa(t_liste **a);
