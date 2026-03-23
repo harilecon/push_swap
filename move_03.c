@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/21 08:24:43 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 08:18:19 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,8 @@ int	high_index(t_liste	*liste)
 
 	while (tmp)
 	{
-		if (tmp->next)
-		{
-			if (tmp->value > high)
-				high = tmp->value;
-		}
+		if (tmp->value > high)
+			high = tmp->value;
 		tmp = tmp->next;
 	}
 

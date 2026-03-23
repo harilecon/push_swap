@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/22 14:10:44 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 08:16:58 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void	range(t_liste	**stack)
 	nb_rb = 0;
 	while (b)
 	{
+		
 		high = high_index(b);
+
+
 		while (nb_rb < high - 1)
 		{
 			printf("rb\n");
@@ -78,12 +81,11 @@ void	range(t_liste	**stack)
 			rrb(&b);
 			nb_rb--;
 		}
-
 	}
 
 
 //	printf ("tessteeeeee");
-	// *stack = a;
+		*stack = a;
 	// printf_stack_index(a, "stack A = ");
 	// printf_stack_index(b , "stack B = ");
 }
