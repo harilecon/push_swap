@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_03.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 15:08:31 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 12:50:48 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ void	add_back(t_liste **lst, t_liste *new_value)
 
 unsigned int	stack_size(t_liste	*liste)
 {
-	t_liste			*tmp;
 	unsigned int	i;
 
 	i = 0;
-	tmp = liste;
 	while (liste)
 	{
 		liste = liste->next;
@@ -77,8 +75,8 @@ int	high_index(t_liste	*liste)
 
 static int	low_value(t_liste *liste)
 {
-	unsigned	low;
-	t_liste		*tmp;
+	unsigned int	low;
+	t_liste			*tmp;
 
 	tmp = liste;
 	low = liste->value;
@@ -96,24 +94,12 @@ static int	low_value(t_liste *liste)
 
 unsigned int	low_index(t_liste *liste)
 {
-//	t_liste	*tmp;
 	long	low;
 	int		i;
 
 	if (!liste)
 		return (0);
 	i = 0;
-	// tmp = liste;
-	// low = liste->value;
-	// while (tmp)
-	// {
-	// 	if (tmp)
-	// 	{
-	// 		if (tmp->value < low)
-	// 			low = tmp->value;
-	// 	}
-	// 	tmp = tmp->next;
-	// }
 	low = low_value(liste);
 	while (liste)
 	{

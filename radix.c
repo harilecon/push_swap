@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:29:22 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 12:53:40 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long	greatest(t_liste	*stack)
-{
-	long	value;
-
-	value = stack->value;
-	while (stack)
-	{
-		if (stack->value > value)
-		{
-			value = stack->value;
-		}
-		stack = stack->next;
-	}
-	return (value);
-}
 
 void	indexation(t_liste	**stack)
 {
@@ -88,44 +72,47 @@ int	check_order(t_liste *stack)
 	return (0);
 }
 
+static void	first(t_liste **a, t_liste **b, int j)
+{
+	unsigned int	i;
+	unsigned int	size_a;
+
+	i = 0;
+	size_a = stack_size(*a);
+	while (i < size_a)
+	{
+		if ((((*a)->index >> j) & 1) == 0)
+		{
+			ft_printf("pb\n");
+			pb(a, b);
+		}
+		else
+		{
+			ft_printf("ra\n");
+			ra(a);
+		}
+		i++;
+	}
+}
+
 void	radix(t_liste **stack)
 {
 	t_liste			*a;
 	t_liste			*b;
 	int				j;
 	int				bits;
-	unsigned int	i;
-	unsigned int	stack_size_of;
 
 	indexation(stack);
 	i = 0;
 	a = *stack;
 	b = NULL;
 	bits = max_bits(a);
-	stack_size_of = stack_size(a);
 	if (!bits)
-	{
-		ft_printf("herreur qlq part");
 		return ;
-	}
 	j = 0;
 	while (j < bits)
 	{
-		i = 0;
-		while (i < stack_size_of)
-		{
-			if (((a->index >> j) & 1) == 0)
-			{
-				ft_printf("pb\n");
-				pb(&a, &b);
-			}
-			else
-			{
-				ft_printf("ra\n");
-				ra(&a);
-			}
-			i++;
-		}
+		first(&a, &b, j);
 		while (b)
 		{
 			ft_printf("pa\n");

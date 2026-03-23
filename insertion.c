@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insertion.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:42:10 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 12:51:29 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ static void	for_a(t_liste **a, t_liste **b)
 {
 	int		index_low;
 	int		i;
-	int		size;
 
 	while (*a)
 	{
 		index_low = low_index(*a);
-		size = stack_size(*a);
 		i = 0;
 		while (i < index_low - 1)
 		{

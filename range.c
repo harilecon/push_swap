@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   range.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:56:46 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 12:53:09 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+long	greatest(t_liste	*stack)
+{
+	long	value;
+
+	value = stack->value;
+	while (stack)
+	{
+		if (stack->value > value)
+		{
+			value = stack->value;
+		}
+		stack = stack->next;
+	}
+	return (value);
+}
 
 int	chunck_size(t_liste **stack)
 {
@@ -74,11 +90,9 @@ void	range(t_liste	**stack)
 {
 	t_liste			*a;
 	t_liste			*b;
-	int				size;
 
 	indexation(stack);
 	a = *stack;
-	size = stack_size(a);
 	b = NULL;
 	if (a)
 		for_a(&a, &b);
