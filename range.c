@@ -6,15 +6,11 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 08:16:58 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 13:39:37 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-#include <stdio.h>
 #include "push_swap.h"
-
 
 int	chunck_size(t_liste **stack)
 {
@@ -29,11 +25,11 @@ void	range(t_liste	**stack)
 {
 	t_liste	*a;
 	t_liste	*b;
-	int		i;
+	unsigned int		i;
 	int		j;
-	int		nb_rb;
+	unsigned int		nb_rb;
 	int		size;
-	int		chunck;
+	unsigned int		chunck;
 	unsigned int high;
 
 	indexation(stack);
@@ -47,12 +43,12 @@ void	range(t_liste	**stack)
 	{
 		if (a->index <= (i + 1) * chunck)
 		{
-			printf("pb\n");
+			ft_printf("pb\n");
 			pb(&a, &b);
 		}
 		else
 		{
-			printf("ra\n");
+			ft_printf("ra\n");
 			ra(&a);
 		}
 			j++;
@@ -63,29 +59,29 @@ void	range(t_liste	**stack)
 	nb_rb = 0;
 	while (b)
 	{
-		
+
 		high = high_index(b);
 
 
 		while (nb_rb < high - 1)
 		{
-			printf("rb\n");
+			ft_printf("rb\n");
 			rb(&b);
 			nb_rb++;
 		}
-		printf("pa\n");
+		ft_printf("pa\n");
 		pa(&a, &b);
 		while (nb_rb)
 		{
-			printf("rrb\n");
+			ft_printf("rrb\n");
 			rrb(&b);
 			nb_rb--;
 		}
 	}
 
 
-//	printf ("tessteeeeee");
+//	ft_printf ("tessteeeeee");
 		*stack = a;
-	// printf_stack_index(a, "stack A = ");
-	// printf_stack_index(b , "stack B = ");
+	// ft_printf_stack_index(a, "stack A = ");
+	// ft_printf_stack_index(b , "stack B = ");
 }

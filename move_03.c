@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 08:18:19 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 13:29:05 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void add_back(t_liste **lst, t_liste *new_value)
 
 
 
-int	stack_size(t_liste	*liste)
+unsigned int	stack_size(t_liste	*liste)
 {
 	t_liste	*tmp;
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	tmp = liste;

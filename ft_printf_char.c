@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/21 08:06:51 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/22 12:05:59 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/02/12 08:59:42 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/02/14 12:06:19 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-
-
-
-#include <stdio.h>
-
-int	main(int argc, char **argv)
+int	ft_printf_char(char c)
 {
-//	printf("%d", argc);
-	if (argc == 3)
-		printf("%s", argv[2]);
+	write(1, &c, 1);
+	return (1);
 }

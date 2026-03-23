@@ -6,11 +6,10 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 07:48:01 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 13:36:22 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "push_swap.h"
 
@@ -25,7 +24,7 @@ int	main(int argc, char **argv)
 
 	if (argc <= 1)
 	{
-		printf("error argument value\n");
+		ft_printf("error argument value\n");
 		return (1);
 	}
 	i = 1;
@@ -40,21 +39,21 @@ int	main(int argc, char **argv)
 	// buble(&lst);
 //	insertion(&lst);
 	// radix(&lst);
-//	printf("size = %d\n",stack_size(lst));
-// //	printf("%li", greatest(lst));
+//	ft_printf("size = %d\n",stack_size(lst));
+// //	ft_printf("%li", greatest(lst));
 // 	int size = stack_size(lst);
 // 	indexation(&lst);
 
-	// printf_stack(lst, "");
+	// ft_printf_stack(lst, "");
 	// for (int i = 0; i < size; i++)
 	// {
-	// 	printf("%d ",tab[i]);
+	// 	ft_printf("%d ",tab[i]);
 	// }
-//	printf("\n");
+//	ft_printf("\n");
 
-	// printf_stack_index(lst, "");
-	// printf_stack(lst, "");
-	// printf("max bits = %d\n", max_bits (lst));
+	// ft_printf_stack_index(lst, "");
+	// ft_printf_stack(lst, "");
+	// ft_printf("max bits = %d\n", max_bits (lst));
 	while (lst)
 	{
 		tmp = lst->next;

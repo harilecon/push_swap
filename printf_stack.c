@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_stack.c                                     :+:      :+:    :+:   */
+/*   ft_printf_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,26 +11,25 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	printf_stack(t_liste	*tmp, char *str)
+void	ft_printf_stack(t_liste	*tmp, char *str)
 {
-	printf("%s", str);
+	ft_printf("%s", str);
 	while (tmp)
 	{
-		printf("%li ", tmp->value);
+		ft_printf("%li ", tmp->value);
 		tmp = tmp->next;
 	}
-	printf("\n\n");
+	ft_printf("\n\n");
 }
-	
-void	printf_stack_index(t_liste	*tmp, char *str)
+
+void	ft_printf_stack_index(t_liste	*tmp, char *str)
 {
-	printf("%s\n", str);
+	ft_printf("%s\n", str);
 	while (tmp)
 	{
-		printf("%d ", tmp->index);
+		ft_printf("%d ", tmp->index);
 		tmp = tmp->next;
 	}
-	printf("\n\n");
+	ft_printf("\n\n");
 }

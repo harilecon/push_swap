@@ -6,12 +6,11 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:22:34 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/19 15:59:45 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 13:35:23 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	buble(t_liste	**stack)
 {
@@ -25,8 +24,6 @@ void	buble(t_liste	**stack)
 
 	ra_move = 0;
 
-	//printf("ton stack est = ");
-	// printf_stack(a);
 	while (i < size - 1)
 	{
 			if (!(a)->next)
@@ -34,38 +31,35 @@ void	buble(t_liste	**stack)
 			if ((a)->next->value > (a)->value)
 			{
 				sa(&a);
-				printf("sa\n");
-				// printf_stack(a);
+				ft_printf("sa\n");
 			}
 
 			if (i < size - 1)
 			{
 				ra_move++;
 				ra(&a);
-				printf("ra\n");
-				// printf_stack(a);
+				ft_printf("ra\n");
 			}
 			if (ra_move == size - 1)
 			{
 				pb(&a, &b);
-				printf("pb\n");
+				ft_printf("pb\n");
 				ra_move = 0;
 				size--;
 				i = -1;
 			}
 		i++;
 	}
-	printf("pb\n");
+	ft_printf("pb\n");
 	pb(&a, &b);
 	*stack = b;
 	size = stack_size(*stack);
 	i = 0;
 	while (i < size)
 	{
-		printf("pa\n");
+		ft_printf("pa\n");
 		pa(&a, &b);
 		i++;
 	}
-	//printf("\n\nfinallement\n");
-	// printf_stack(a);
+	*stack = a;
 }

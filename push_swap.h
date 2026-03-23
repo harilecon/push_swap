@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/22 10:10:59 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 13:36:55 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PUSH_SWAP_H
 
 #include <stdlib.h>
+# include "ft_printf.h"
 
 typedef struct	s_liste
 {
@@ -33,20 +34,19 @@ void	rrb(t_liste **b);
 void	rrr(t_liste **a, t_liste **b);
 void	pa(t_liste **a, t_liste **b);
 void	pb(t_liste **a, t_liste **b);
-
 void	add_back(t_liste **lst, t_liste *new_value);
+
 int		high_index(t_liste	*liste);
-int		stack_size(t_liste	*liste);
+unsigned int		stack_size(t_liste	*liste);
 long	char_lo(char *str);
 t_liste	*create_liste(long i);
 
-void	printf_stack_index(t_liste	*tmp, char *str);
+void	ft_printf_stack_index(t_liste	*tmp, char *str);
 
 long	greatest(t_liste	*stack);
 
 void	insertion(t_liste **stack);
 int	power(long nb);
-void	printf_stack(t_liste	*tmp, char *str);
 int	low_index(t_liste	*liste);
 void	buble(t_liste	**stack);
 

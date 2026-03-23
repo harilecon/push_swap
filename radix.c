@@ -6,12 +6,11 @@
 /*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/21 10:26:06 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/23 13:38:19 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 long	greatest(t_liste	*stack)
 {
@@ -79,8 +78,6 @@ unsigned int	max_bits(t_liste *stack)
 
 int	check_order(t_liste *stack)
 {
-	unsigned int	value;
-
 	if (!stack)
 		return (0);
 
@@ -107,11 +104,10 @@ void	radix(t_liste **stack)
 	a = *stack;
 	b = NULL;
 	bits = max_bits(a);
-	int ra_compte = 0;
 
 	if(!bits)
 	{
-		printf("herreur qlq part");
+		ft_printf("herreur qlq part");
 		return ;
 	}
 
@@ -126,26 +122,26 @@ void	radix(t_liste **stack)
 			{
 				if (((a->index >> j) & 1) == 0)
 				{
-					printf("pb\n");
+					ft_printf("pb\n");
 					pb(&a, &b);
 				}
 				else
 				{
-					printf("ra\n");
+					ft_printf("ra\n");
 					ra(&a);
 				}
 				i++;
 			}
 			while (b)
 			{
-				printf("pa\n");
+				ft_printf("pa\n");
 				pa(&a, &b);
 			}
 
 			j++;
 		}
 
-	// printf_stack(a, "le stack a = ");
-	// printf_stack(b, "le stack b = ");
+	// ft_printf_stack(a, "le stack a = ");
+	// ft_printf_stack(b, "le stack b = ");
 	*stack = a;
 }
