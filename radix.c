@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 12:53:40 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/24 07:48:26 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ void	radix(t_liste **stack)
 	int				bits;
 
 	indexation(stack);
-	i = 0;
 	a = *stack;
 	b = NULL;
 	bits = max_bits(a);

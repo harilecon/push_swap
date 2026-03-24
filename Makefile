@@ -6,7 +6,7 @@
 #    By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/23 14:59:14 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/24 08:04:46 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,16 +37,25 @@ OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : $(OBJ) libft
+	$(CC) $(CFLAGS) $(OBJ) libft.a -o $(NAME)
+
+libft :
+	make -C libft all
+	mv libft/libft.a .
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
+	make -C libft clean
 	rm -rf $(OBJ)
 
 fclean : clean
+	make -C libft fclean
+	rm -rf libft.a
 	rm -rf $(NAME)
 
 re : fclean $(NAME)
+
+.PHONY : libft re clean fclean

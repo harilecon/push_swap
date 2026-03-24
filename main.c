@@ -27,12 +27,27 @@ int	main(int argc, char **argv)
 		ft_printf("error argument value\n");
 		return (1);
 	}
-	i = 1;
-	while (i < argc)
+	if (argc == 3)
 	{
-		test = create_liste(char_lo(argv[i]));
-		add_back(&lst, test);
-		i++;
+		char **tab;
+		tab = ft_split(argv[3], ' ');
+		while (tab)
+		{
+			i = 0;
+			test = create_liste(char_lo(tab[0]));
+			add_back(&lst, test);
+			i++;
+		}
+	}
+	else
+	{
+		i = 1;
+		while (i < argc)
+		{
+			test = create_liste(char_lo(argv[i]));
+			add_back(&lst, test);
+			i++;
+		}
 	}
 
 	//range(&lst);
