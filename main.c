@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 10:17:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 12:16:45 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 13:07:19 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,15 @@ int	not_number(char *str)
 	if (!str)
 		return (1);
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (1);
+	if (str[0] == '-' || str[0] == '+')
 		i++;
+	{
+		while (str[i])
+		{
+			if (str[i] < '0' || str[i] > '9')
+				return (1);
+			i++;
+		}
 	}
 	return (0);
 }
