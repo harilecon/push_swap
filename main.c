@@ -1,73 +1,164 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 10:24:21 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:55:35 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/03/25 05:36:04 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "push_swap.h"
 
 
+void	free_stack(t_liste	**stack)
+{
+	t_liste	*tmp;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+}
+
+void	free_tab(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i])
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+static char	**create_table(int k, char ***big_str, int i, int j)
+{
+	char	**str;
+
+	i = 0;
+	j = 0;
+	str = malloc(sizeof(char *) * (k + 1));
+	if (!str)
+		return (NULL);
+	k = 0;
+	while (big_str[j])
+	{
+		i = 0;
+		while (big_str[j][i])
+		{
+			str[k] = ft_strdup(big_str[j][i]);
+			free(big_str[j][i]);
+			k++;
+			i++;
+		}
+		free(big_str[j]);
+		j++;
+	}
+	str[k] = NULL;
+	free(big_str);
+	return (str);
+}
+
+static int	count(char ***big_str)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while (big_str[j])
+	{
+		i = 0;
+		while (big_str[j][i])
+		{
+			k++;
+			i++;
+		}
+		j++;
+	}
+	return (k);
+}
+
+char	**argument(int argc, char **argv)
+{
+	char	***big_str;
+	char	**str;
+	int		k;
+	int		i;
+	int		j;
+
+	i = 1;
+	j = 0;
+	k = 0;
+	big_str = malloc(sizeof(char **) * argc);
+	if (!big_str)
+		return (NULL);
+	while (i < argc)
+	{
+		big_str[j] = ft_split(argv[i], ' ');
+		i++;
+		j++;
+	}
+	big_str[j] = NULL;
+	k = count(big_str);
+	str = create_table(k, big_str, i, j);
+	return (str);
+}
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
-
-	t_liste	*test;
-	t_liste	*lst = NULL;
+	char	**str;
+	t_liste	*stack;
 	t_liste	*tmp;
-	long	i;
+	static t_bunch	*bunch_mark;
+	int		i;
 
-	if (argc <= 1)
-	{
-		ft_printf("error argument value\n");
-		return (1);
-	}
-	if (argc == 3)
-	{
-		char **tab;
-		tab = ft_split(argv[3], ' ');
-		while (tab)
+	stack = NULL;
+	bunch_mark = malloc(sizeof(t_bunch));
+	// bunch_mark->sa = 0;
+	// bunch_mark->pa = 0;
+	str = argument(argc, argv);
+	i = 0;
+		while (str[i])
 		{
-			i = 0;
-			test = create_liste(char_lo(tab[0]));
-			add_back(&lst, test);
+			tmp =  create_liste(char_lo(str[i]));
+			add_back(&stack, tmp);
 			i++;
 		}
-	}
-	else
-	{
-		i = 1;
-		while (i < argc)
-		{
-			test = create_liste(char_lo(argv[i]));
-			add_back(&lst, test);
-			i++;
-		}
-	}
+		// buble(&stack, &bunch_mark);
+	// radix(&stack, &bunch_mark);
+	// insertion (&stack, &bunch_mark);
+	 range(&stack, &bunch_mark);
 
-	//range(&lst);
-	// buble(&lst);
-	insertion(&lst);
-	// radix(&lst);
+	// printf("\n\nbuch\nsa=%d\npb=%d\npa=%d\n", bunch_mark->sa, bunch_mark->pa, bunch_mark->pa);
 
-	while (lst)
-	{
-		tmp = lst->next;
-		free(lst);
-		lst = tmp;
-	}
+// 	printf("\n\nbunch\nsa=%d\nsb=%d\nss=%d\npa=%d\npb=%d\nra=%d\nrb=%d\nrr=%d\nrra=%d\nrrb=%d\nrrr=%d\n",
+//     bunch_mark->sa,
+//     bunch_mark->sb,
+//     bunch_mark->ss,
+//     bunch_mark->pa,
+//     bunch_mark->pb,
+//     bunch_mark->ra,
+//     bunch_mark->rb,
+//     bunch_mark->rr,
+//     bunch_mark->rra,
+//     bunch_mark->rrb,
+//     bunch_mark->rrr
+// );
 
 
-	while (lst)
-	{
-		tmp = lst->next;
-		free(lst);
-		lst = tmp;
-	}
-	return (0);
+	free(bunch_mark);
+	free_stack(&stack);
+	free_tab(str);
 }

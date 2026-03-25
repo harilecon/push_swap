@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   move_01.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:28:36 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 14:58:42 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 04:45:34 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_liste **a)
+void	sa(t_liste **a, t_bunch **bunch_mark)
 {
 	t_liste	*first;
 	t_liste	*second;
@@ -26,11 +26,12 @@ void	sa(t_liste **a)
 	second->next = first;
 	second->previous = NULL;
 	*a = second;
+	(*bunch_mark)->sa++;
 	if (first->next)
 		first->next->previous = first;
 }
 
-void	sb(t_liste **b)
+void	sb(t_liste **b, t_bunch **bunch_mark)
 {
 	t_liste	*first;
 	t_liste	*second;
@@ -44,17 +45,21 @@ void	sb(t_liste **b)
 	second->next = first;
 	second->previous = NULL;
 	*b = second;
+	(*bunch_mark)->sb++;
 	if (first->next)
 		first->next->previous = first;
 }
 
-void	ss(t_liste **a, t_liste **b)
+void	ss(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
-	sa(a);
-	sb(b);
+	(*bunch_mark)->ss++;
+	(*bunch_mark)->sa--;
+	(*bunch_mark)->sb--;
+	sa(a, bunch_mark);
+	sb(b, bunch_mark);
 }
 
-void	ra(t_liste **a)
+void	ra(t_liste **a, t_bunch **bunch_mark)
 {
 	t_liste	*last;
 	t_liste	*first;
@@ -70,4 +75,5 @@ void	ra(t_liste **a)
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
+	(*bunch_mark)->ra++;
 }

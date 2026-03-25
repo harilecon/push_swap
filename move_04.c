@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   move_04.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:58:23 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 15:01:50 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 04:53:47 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_liste **b)
+void	rb(t_liste **b, t_bunch **bunch_mark)
 {
 	t_liste	*last;
 	t_liste	*first;
@@ -28,15 +28,19 @@ void	rb(t_liste **b)
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
+	(*bunch_mark)->rb++;
 }
 
-void	rr(t_liste **a, t_liste **b)
+void	rr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
-	ra(a);
-	rb(b);
+	(*bunch_mark)->rr++;
+	(*bunch_mark)->ra--;
+	(*bunch_mark)->rb--;
+	ra(a, bunch_mark);
+	rb(b, bunch_mark);
 }
 
-void	rra(t_liste **a)
+void	rra(t_liste **a, t_bunch **bunch_mark)
 {
 	t_liste	*last;
 	t_liste	*b_last;
@@ -52,6 +56,7 @@ void	rra(t_liste **a)
 	last->previous = NULL;
 	(*a)->previous = last;
 	*a = last;
+	(*bunch_mark)->rra++;
 }
 
 t_liste	*create_liste(long i)

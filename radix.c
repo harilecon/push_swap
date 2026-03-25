@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/24 07:48:26 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 05:03:01 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	check_order(t_liste *stack)
 	return (0);
 }
 
-static void	first(t_liste **a, t_liste **b, int j)
+static void	first(t_liste **a, t_liste **b, int j, t_bunch **bunch_mark)
 {
 	unsigned int	i;
 	unsigned int	size_a;
@@ -84,18 +84,18 @@ static void	first(t_liste **a, t_liste **b, int j)
 		if ((((*a)->index >> j) & 1) == 0)
 		{
 			ft_printf("pb\n");
-			pb(a, b);
+			pb(a, b, bunch_mark);
 		}
 		else
 		{
 			ft_printf("ra\n");
-			ra(a);
+			ra(a, bunch_mark);
 		}
 		i++;
 	}
 }
 
-void	radix(t_liste **stack)
+void	radix(t_liste **stack, t_bunch **bunch_mark)
 {
 	t_liste			*a;
 	t_liste			*b;
@@ -111,11 +111,11 @@ void	radix(t_liste **stack)
 	j = 0;
 	while (j < bits)
 	{
-		first(&a, &b, j);
+		first(&a, &b, j, bunch_mark);
 		while (b)
 		{
 			ft_printf("pa\n");
-			pa(&a, &b);
+			pa(&a, &b, bunch_mark);
 		}
 		j++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_03.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/23 12:50:48 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/24 23:12:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,15 @@ int	high_index(t_liste	*liste)
 
 static int	low_value(t_liste *liste)
 {
-	unsigned int	low;
-	t_liste			*tmp;
+	int			low;
+	t_liste		*tmp;
 
 	tmp = liste;
 	low = liste->value;
 	while (tmp)
 	{
-		if (tmp)
-		{
-			if (tmp->value < low)
-				low = tmp->value;
-		}
+		if (tmp->value < low)
+			low = tmp->value;
 		tmp = tmp->next;
 	}
 	return (low);

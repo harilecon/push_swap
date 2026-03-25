@@ -6,7 +6,7 @@
 #    By: tsitoand <tsitoand@tsitoand@student.42a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/24 08:04:46 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/24 17:46:08 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC =	buble.c\
 		radix.c\
 		range.c\
 		main.c
+#		argument.c\
 
 
 OBJ = $(SRC:.c=.o)
