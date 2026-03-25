@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   buble.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:22:34 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 08:15:01 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 05:06:35 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	buble(t_liste	**stack, t_bunch	**bunch_mark)
 {
 	int		size;
 	int		i;
-	int		ra_move;
+//	int		ra_move;
 	t_liste	*a;
 	t_liste	*b;
 
@@ -60,7 +60,7 @@ void	buble(t_liste	**stack, t_bunch	**bunch_mark)
 	b = NULL;
 	i = 0;
 	size = stack_size(*stack);
-	ra_move = 0;
+//	ra_move = 0;
 	loop(&a, &b, size, i, bunch_mark);
 	ft_printf("pb\n");
 	pb(&a, &b, bunch_mark);

@@ -5,188 +5,166 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 09:38:08 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/03/25 10:17:06 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/03/25 12:16:45 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	free_stack(t_liste	**stack)
+typedef struct s_argument
 {
-	t_liste	*tmp;
+	char	**argument;
+	char	**number;
+}			t_argument;
 
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-}
 
-void	free_tab(char **str)
+void free_argument(t_argument **argument)
 {
 	int	i;
 
+	i = 0;
+	if ((*argument)->argument)
+	{
+		while((*argument)->argument[i])
+		{
+			free((*argument)->argument[i]);
+			i++;
+		}
+	}
+	free((*argument)->argument);
+	i = 0;
+
+	if ((*argument)->number)
+	{
+		while((*argument)->number[i])
+		{
+			free((*argument)->number[i]);
+			i++;
+		}
+	}
+	free((*argument)->number);
+	free(*argument);
+}
+
+
+int	not_number(char *str)
+{
+	int	i;
+
+	if (!str)
+		return (1);
 	i = 0;
 	while (str[i])
 	{
-		if (str[i])
-		free(str[i]);
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
 		i++;
 	}
-	free(str);
+	return (0);
 }
 
-static char	**create_table(int k, char ***big_str, int i, int j)
-{
-	char	**str;
-
-	i = 0;
-	j = 0;
-	str = malloc(sizeof(char *) * (k + 1));
-	if (!str)
-		return (NULL);
-	k = 0;
-	while (big_str[j])
-	{
-		i = 0;
-		while (big_str[j][i])
-		{
-			str[k] = ft_strdup(big_str[j][i]);
-			free(big_str[j][i]);
-			k++;
-			i++;
-		}
-		free(big_str[j]);
-		j++;
-	}
-	str[k] = NULL;
-	free(big_str);
-	return (str);
-}
-
-static int	count(char ***big_str)
+char **new_tab(char **old_tab, char *new_element)
 {
 	int	i;
-	int	j;
-	int	k;
+	int	tab_size;
+	char **new_tab;
 
+	if (!new_element)
+		return(old_tab);
+	tab_size = 0;
 	i = 0;
-	j = 0;
-	k = 0;
-	while (big_str[j])
+	if (old_tab)
 	{
-		i = 0;
-		while (big_str[j][i])
-		{
-			k++;
-			i++;
-		}
-		j++;
+		while (old_tab[tab_size])
+			tab_size++;
 	}
-	return (k);
+	new_tab = malloc(sizeof(char *) * (tab_size + 2));
+	if (!new_tab)
+		return(NULL);
+	while (i < tab_size)
+	{
+		new_tab[i] = ft_strdup(old_tab[i]);
+		free(old_tab[i]);
+		i++;
+	}
+	free(old_tab);
+	new_tab[i] = ft_strdup(new_element);
+	new_tab[i + 1] = NULL;
+	return(new_tab);
 }
 
-char	**argument(int argc, char **argv)
-{
-	char	***big_str;
-	char	**str;
-	int		k;
-	int		i;
-	int		j;
 
-	i = 1;
-	j = 0;
-	k = 0;
-	big_str = malloc(sizeof(char **) * argc);
-	if (!big_str)
-		return (NULL);
-	while (i < argc)
+t_argument	*table(char **str)
+{
+	int	i;
+	t_argument *argument;
+
+	argument = malloc(sizeof(t_argument));
+	if (!argument)
+		return(NULL);
+	i = 0;
+	argument->argument = NULL;
+	argument->number = NULL;
+	while (str[i])
 	{
-		big_str[j] = ft_split(argv[i], ' ');
+		if (not_number(str[i]) == 0)
+		{
+			argument->number = new_tab(argument->number, str[i]);
+			if (!argument->number)
+			{
+				free_argument(&argument);
+				return (NULL);
+			}
+		}
+		else
+		{
+			argument->argument = new_tab(argument->argument, str[i]);
+			if (!argument->argument)
+			{
+				free_argument(&argument);
+				return (NULL);
+			}
+		}
 		i++;
-		j++;
 	}
-	big_str[j] = NULL;
-	k = count(big_str);
-	str = create_table(k, big_str, i, j);
-	return (str);
+	return (argument);
 }
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	char	**str;
-	t_liste	*stack;
-	t_liste	*tmp;
-	static t_bunch	*bunch_mark;
-	int		i;
+	int	i;
+	char **tb;
+	t_argument *arg;
 
-	stack = NULL;
-	bunch_mark = malloc(sizeof(t_bunch));
-	str = argument(argc, argv);
 	i = 0;
-	while (str[i])
+	tb = argument_table(argc, argv);
+	arg = table(tb);
+	if (!arg)
 	{
-		tmp =  create_liste(char_lo(str[i]));
-		add_back(&stack, tmp);
-		i++;
+		printf("erreur creation table\n");
+		return (-1);
 	}
-
-		initialisation_bunch_value(&bunch_mark);
-
-
-	double disorder = compute_disorder(stack);
-
-	if (disorder == 0)
+	if (arg->argument)
 	{
-		free(bunch_mark);
-		free_stack(&stack);
-		free_tab(str);
-		return (0);
+		while (arg->argument[i])
+		{
+			printf ("argument = %s\n", arg->argument[i]);
+			i++;
+		}
+		printf("\n\n");
 	}
-	else if (disorder > 0 && disorder < 0.2)
+	i = 0;
+	if (arg->number)
 	{
-		insertion(&stack, &bunch_mark);
-		bunch_mark->complexity = "O(n^2)";
+		while (arg->number[i])
+		{
+			printf ("number = %s\n", arg->number[i]);
+			i++;
+		}
 	}
-	else if (disorder >= 0.2 && disorder <= 0.5)
-	{
-		range(&stack, &bunch_mark);
-		bunch_mark->complexity = "O(n√n)";
-	}
-	else
-	{
-		radix(&stack, &bunch_mark);
-		bunch_mark->complexity = "O(nlogn)";
-	}
-		// printf("high= %f\n", disorder);
-	// printf("desordre = %f\n", test);
-	// buble(&stack, &bunch_mark);
-	// radix(&stack, &bunch_mark);
-	// insertion (&stack, &bunch_mark);
-	//  range(&stack, &bunch_mark);
-
-	// printf("\n\nbuch\nsa=%d\npb=%d\npa=%d\n", bunch_mark->sa, bunch_mark->pa, bunch_mark->pa);
-
-// 	printf("\n\nbunch\nsa=%d\nsb=%d\nss=%d\npa=%d\npb=%d\nra=%d\nrb=%d\nrr=%d\nrra=%d\nrrb=%d\nrrr=%d\n",
-//     bunch_mark->sa,
-//     bunch_mark->sb,
-//     bunch_mark->ss,
-//     bunch_mark->pa,
-//     bunch_mark->pb,
-//     bunch_mark->ra,
-//     bunch_mark->rb,
-//     bunch_mark->rr,
-//     bunch_mark->rra,
-//     bunch_mark->rrb,
-//     bunch_mark->rrr
-// );
-
-	bunch(bunch_mark);
-	free(bunch_mark);
-	free_stack(&stack);
-	free_tab(str);
+	free_argument(&arg);
+	free_tab(tb);
+	return (0);
 }

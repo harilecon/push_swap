@@ -6,7 +6,7 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/25 08:40:14 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/25 12:00:12 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC =	buble.c\
 		range.c\
 		main.c\
 		adaptative.c\
-		bunch.c
+		bunch.c\
+		tous_number.c
 
 
 OBJ = $(SRC:.c=.o)
