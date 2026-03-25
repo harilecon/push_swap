@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 05:36:04 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:59:03 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,16 +130,33 @@ int	main(int argc, char **argv)
 	// bunch_mark->pa = 0;
 	str = argument(argc, argv);
 	i = 0;
-		while (str[i])
-		{
-			tmp =  create_liste(char_lo(str[i]));
-			add_back(&stack, tmp);
-			i++;
-		}
-		// buble(&stack, &bunch_mark);
+	while (str[i])
+	{
+		tmp =  create_liste(char_lo(str[i]));
+		add_back(&stack, tmp);
+		i++;
+	}
+	double disorder = compute_disorder(stack);
+
+	if (disorder == 0)
+	{
+		free(bunch_mark);
+		free_stack(&stack);
+		free_tab(str);
+		return (0);
+	}
+	else if (disorder > 0 && disorder < 0.2)
+		insertion(&stack, &bunch_mark);
+	else if (disorder >= 0.2 && disorder <= 0.5)
+		range(&stack, &bunch_mark);
+	else
+		radix(&stack, &bunch_mark);
+		// printf("high= %f\n", disorder);
+	// printf("desordre = %f\n", test);
+	// buble(&stack, &bunch_mark);
 	// radix(&stack, &bunch_mark);
 	// insertion (&stack, &bunch_mark);
-	 range(&stack, &bunch_mark);
+	//  range(&stack, &bunch_mark);
 
 	// printf("\n\nbuch\nsa=%d\npb=%d\npa=%d\n", bunch_mark->sa, bunch_mark->pa, bunch_mark->pa);
 

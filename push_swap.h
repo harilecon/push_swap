@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 05:26:43 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:30:02 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ typedef struct s_liste
 {
 	unsigned int	index;
 	long			value;
-	int				sa;
-	int				sb;
 	struct s_liste	*next;
 	struct s_liste	*previous;
 }				t_liste;
@@ -43,9 +41,10 @@ typedef struct s_bunch
 }				t_bunch;
 
 char			**argument(int argc, char **argv);
-t_liste			*create_liste(long i);
+double	compute_disorder(t_liste *stack);
 long			greatest(t_liste	*stack);
 long			char_lo(char *str);
+t_liste			*create_liste(long i);
 int				check_order(t_liste *stack);
 int				high_index(t_liste	*liste);
 int				power(long nb);
