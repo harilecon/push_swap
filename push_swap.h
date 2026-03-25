@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 06:30:02 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 09:32:35 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_liste
 
 typedef struct s_bunch
 {
+	char	*complexity;
+	char	*strategy;
 	int	sa;
 	int	sb;
 	int	ss;
@@ -63,11 +65,12 @@ void			pa(t_liste **a, t_liste **b, t_bunch **bunch_mark);
 void			pb(t_liste **a, t_liste **b, t_bunch **bunch_mark);
 void			free_tab(char **str);
 void			add_back(t_liste **lst, t_liste *new_value);
-// void			ft_printf_stack_index(t_liste	*tmp, char *str);
 void			insertion(t_liste **stack, t_bunch **bunch_mark);
 void			buble(t_liste	**stac, t_bunch **bunch_mark);
 void			indexation(t_liste **stack);
 void			radix(t_liste **stack, t_bunch **bunch_mark);
 void			range(t_liste **stack, t_bunch **bunch_mark);
+void			bunch(t_bunch	*bunch_mark);
+void			initialisation_bunch_value(t_bunch **bunch_mark);
 
 #endif // PUSH_SWAP_H

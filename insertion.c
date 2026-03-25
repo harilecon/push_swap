@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 04:58:32 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 08:15:57 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	insertion(t_liste **stack, t_bunch **bunch_mark)
 {
 	t_liste	*a;
 	t_liste	*b;
-
+	(*bunch_mark)->complexity = "insertion";
 	b = NULL;
 	a = *stack;
 	if (a)

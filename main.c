@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 06:59:03 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 09:38:08 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,6 @@ int	main(int argc, char **argv)
 
 	stack = NULL;
 	bunch_mark = malloc(sizeof(t_bunch));
-	// bunch_mark->sa = 0;
-	// bunch_mark->pa = 0;
 	str = argument(argc, argv);
 	i = 0;
 	while (str[i])
@@ -136,6 +134,10 @@ int	main(int argc, char **argv)
 		add_back(&stack, tmp);
 		i++;
 	}
+
+		initialisation_bunch_value(&bunch_mark);
+
+
 	double disorder = compute_disorder(stack);
 
 	if (disorder == 0)
@@ -146,11 +148,20 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	else if (disorder > 0 && disorder < 0.2)
+	{
 		insertion(&stack, &bunch_mark);
+		bunch_mark->complexity = "O(n^2)";
+	}
 	else if (disorder >= 0.2 && disorder <= 0.5)
+	{
 		range(&stack, &bunch_mark);
+		bunch_mark->complexity = "O(n√n)";
+	}
 	else
+	{
 		radix(&stack, &bunch_mark);
+		bunch_mark->complexity = "O(nlogn)";
+	}
 		// printf("high= %f\n", disorder);
 	// printf("desordre = %f\n", test);
 	// buble(&stack, &bunch_mark);
@@ -174,7 +185,7 @@ int	main(int argc, char **argv)
 //     bunch_mark->rrr
 // );
 
-
+	bunch(bunch_mark);
 	free(bunch_mark);
 	free_stack(&stack);
 	free_tab(str);

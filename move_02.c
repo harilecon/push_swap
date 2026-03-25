@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:52:20 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/24 23:17:21 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 09:36:05 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	pa(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
 	t_liste	*tmp;
 
+	(*bunch_mark)->pa++;
 	if (!a || !b || !*b)
 		return ;
 	tmp = *b;
@@ -55,13 +56,13 @@ void	pa(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	if (*a)
 		(*a)->previous = tmp;
 	*a = tmp;
-	(*bunch_mark)->pa++;
 }
 
 void	pb(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
 	t_liste	*tmp;
 
+	(*bunch_mark)->pb++;
 	if (!b || !a || !*a)
 		return ;
 	tmp = *a;
@@ -73,5 +74,4 @@ void	pb(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	if (*b)
 		(*b)->previous = tmp;
 	*b = tmp;
-	(*bunch_mark)->pb++;
 }

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 05:03:01 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 08:14:13 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	radix(t_liste **stack, t_bunch **bunch_mark)
 	int				j;
 	int				bits;
 
+	(*bunch_mark)->complexity = "radix";
 	indexation(stack);
 	a = *stack;
 	b = NULL;

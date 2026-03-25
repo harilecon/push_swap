@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:28:36 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 04:45:34 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 09:35:51 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	sa(t_liste **a, t_bunch **bunch_mark)
 	t_liste	*first;
 	t_liste	*second;
 
+	(*bunch_mark)->sa++;
 	if (!a || !(*a) || !(*a)->next)
 		return ;
 	first = *a;
@@ -26,7 +27,6 @@ void	sa(t_liste **a, t_bunch **bunch_mark)
 	second->next = first;
 	second->previous = NULL;
 	*a = second;
-	(*bunch_mark)->sa++;
 	if (first->next)
 		first->next->previous = first;
 }
@@ -36,8 +36,9 @@ void	sb(t_liste **b, t_bunch **bunch_mark)
 	t_liste	*first;
 	t_liste	*second;
 
+	(*bunch_mark)->sb++;
 	if (!b || !(*b) || !(*b)->next)
-		return ;
+	return ;
 	first = *b;
 	second = (*b)->next;
 	first->previous = second;
@@ -45,7 +46,6 @@ void	sb(t_liste **b, t_bunch **bunch_mark)
 	second->next = first;
 	second->previous = NULL;
 	*b = second;
-	(*bunch_mark)->sb++;
 	if (first->next)
 		first->next->previous = first;
 }
@@ -64,6 +64,7 @@ void	ra(t_liste **a, t_bunch **bunch_mark)
 	t_liste	*last;
 	t_liste	*first;
 
+	(*bunch_mark)->ra++;
 	if ((!a) || (!*a) || (!(*a)->next))
 		return ;
 	last = *a;
@@ -75,5 +76,4 @@ void	ra(t_liste **a, t_bunch **bunch_mark)
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
-	(*bunch_mark)->ra++;
 }

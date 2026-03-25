@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:22:34 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 05:32:41 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/25 08:15:01 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	buble(t_liste	**stack, t_bunch	**bunch_mark)
 	t_liste	*a;
 	t_liste	*b;
 
+	(*bunch_mark)->complexity = "bubble";
 	a = *stack;
 	b = NULL;
 	i = 0;
