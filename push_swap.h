@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 11:53:20 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 09:43:03 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,23 @@ typedef struct s_bunch
 	int	pb;
 }				t_bunch;
 
+typedef struct s_argument
+{
+	char	**argument;
+	char	**number;
+}			t_argument;
+
 char			**argument_table(int argc, char **argv);
+char			*which_algo(char **str);
 double			compute_disorder(t_liste *stack);
 long			greatest(t_liste	*stack);
 long			char_lo(char *str);
+t_argument		*struct_argument(char **str);
 t_liste			*create_liste(long i);
 int				check_order(t_liste *stack);
 int				high_index(t_liste	*liste);
 int				power(long nb);
+int				ft_strcmp(char *s1, char *s2);
 unsigned int	low_index(t_liste *liste);
 unsigned int	max_bits(t_liste *stack);
 unsigned int	stack_size(t_liste	*liste);
@@ -65,6 +74,7 @@ void			pa(t_liste **a, t_liste **b, t_bunch **bunch_mark);
 void			pb(t_liste **a, t_liste **b, t_bunch **bunch_mark);
 void			free_tab(char **str);
 void			free_stack(t_liste	**stack);
+void			free_argument(t_argument **argument);
 void			add_back(t_liste **lst, t_liste *new_value);
 void			insertion(t_liste **stack, t_bunch **bunch_mark);
 void			buble(t_liste	**stac, t_bunch **bunch_mark);

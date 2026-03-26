@@ -5,105 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/24 23:12:46 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/03/23 14:58:23 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/03/26 07:33:14 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_back(t_liste **lst, t_liste *new_value)
+void	rb(t_liste **b, t_bunch **bunch_mark)
 {
-	t_liste	*tmp;
+	t_liste	*last;
+	t_liste	*first;
 
-	if (!lst || !new_value)
+	(*bunch_mark)->rb++;
+	if (!b || !*b || !(*b)->next)
 		return ;
-	if (!*lst)
-	{
-		*lst = new_value;
-		new_value->next = NULL;
-		new_value->previous = NULL;
+	last = *b;
+	first = *b;
+	while (last->next)
+		last = last->next;
+	(*b) = (*b)->next;
+	(*b)->previous = NULL;
+	last->next = first;
+	first->previous = last;
+	first->next = NULL;
+}
+
+void	rr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+{
+	(*bunch_mark)->rr++;
+	(*bunch_mark)->ra--;
+	(*bunch_mark)->rb--;
+	ra(a, bunch_mark);
+	rb(b, bunch_mark);
+}
+
+void	rra(t_liste **a, t_bunch **bunch_mark)
+{
+	t_liste	*last;
+	t_liste	*b_last;
+
+	(*bunch_mark)->rra++;
+	if (!a || !*a || !(*a)->next)
 		return ;
-	}
-	tmp = *lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new_value;
-	new_value->previous = tmp;
-	new_value->next = NULL;
-}
-
-unsigned int	stack_size(t_liste	*liste)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (liste)
-	{
-		liste = liste->next;
-		i++;
-	}
-	return (i);
-}
-
-int	high_index(t_liste	*liste)
-{
-	t_liste	*tmp;
-	long	high;
-	int		i;
-
-	if (!liste)
-		return (0);
-	i = 0;
-	tmp = liste;
-	high = liste->value;
-	while (tmp)
-	{
-		if (tmp->value > high)
-			high = tmp->value;
-		tmp = tmp->next;
-	}
-	while (liste)
-	{
-		i++;
-		if (high == liste->value)
-			return (i);
-		liste = liste->next;
-	}
-	return (i);
-}
-
-static int	low_value(t_liste *liste)
-{
-	int			low;
-	t_liste		*tmp;
-
-	tmp = liste;
-	low = liste->value;
-	while (tmp)
-	{
-		if (tmp->value < low)
-			low = tmp->value;
-		tmp = tmp->next;
-	}
-	return (low);
-}
-
-unsigned int	low_index(t_liste *liste)
-{
-	long	low;
-	int		i;
-
-	if (!liste)
-		return (0);
-	i = 0;
-	low = low_value(liste);
-	while (liste)
-	{
-		i++;
-		if (low == liste->value)
-			return (i);
-		liste = liste->next;
-	}
-	return (i);
+	last = *a;
+	while (last->next)
+		last = last->next;
+	b_last = last->previous;
+	b_last->next = NULL;
+	last->next = *a;
+	last->previous = NULL;
+	(*a)->previous = last;
+	*a = last;
 }

@@ -6,14 +6,14 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/25 12:00:12 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/26 09:46:33 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRC =	buble.c\
+SRC =	bubble_sort.c\
 		ft_printf_address.c\
 		ft_printf.c\
 		ft_printf_char.c\
@@ -23,17 +23,21 @@ SRC =	buble.c\
 		ft_printf_int_unsigned_nb.c\
 		ft_printf_long_hexlow.c\
 		ft_printf_string.c\
-		insertion.c\
+		insertion_sort.c\
 		move_01.c\
 		move_02.c\
 		move_03.c\
-		move_04.c\
-		radix.c\
-		range.c\
+		struct_utils.c\
+		radix_sort.c\
+		range_sort.c\
 		main.c\
 		adaptative.c\
-		bunch.c\
-		tous_number.c
+		benchmark.c\
+		struct_argument.c\
+		choose_algo.c\
+		utils_01.c\
+		utils_02.c\
+		ft_free.c
 
 
 OBJ = $(SRC:.c=.o)

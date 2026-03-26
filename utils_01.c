@@ -1,62 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_04.c                                          :+:      :+:    :+:   */
+/*   utils_01.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/23 14:58:23 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 09:36:37 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/03/26 09:45:00 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/03/26 09:46:09 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_liste **b, t_bunch **bunch_mark)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_liste	*last;
-	t_liste	*first;
+	int	i;
 
-	(*bunch_mark)->rb++;
-	if (!b || !*b || !(*b)->next)
-		return ;
-	last = *b;
-	first = *b;
-	while (last->next)
-		last = last->next;
-	(*b) = (*b)->next;
-	(*b)->previous = NULL;
-	last->next = first;
-	first->previous = last;
-	first->next = NULL;
-}
-
-void	rr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
-{
-	(*bunch_mark)->rr++;
-	(*bunch_mark)->ra--;
-	(*bunch_mark)->rb--;
-	ra(a, bunch_mark);
-	rb(b, bunch_mark);
-}
-
-void	rra(t_liste **a, t_bunch **bunch_mark)
-{
-	t_liste	*last;
-	t_liste	*b_last;
-
-	(*bunch_mark)->rra++;
-	if (!a || !*a || !(*a)->next)
-		return ;
-	last = *a;
-	while (last->next)
-		last = last->next;
-	b_last = last->previous;
-	b_last->next = NULL;
-	last->next = *a;
-	last->previous = NULL;
-	(*a)->previous = last;
-	*a = last;
+	i = 0;
+	if (!s1 && s2)
+		return(s2[i]);
+	if (s1 && !s2)
+		return (s1[i]);
+	if (!s1 && !s2)
+		return (0);
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+	{
+		if (s1[i] != s2[i])
+			break ;
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
 
 t_liste	*create_liste(long i)

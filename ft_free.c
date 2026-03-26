@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptative.c                                       :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 05:54:41 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 07:28:04 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/03/26 09:40:44 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/03/26 09:41:23 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-double	compute_disorder(t_liste *stack)
+void	free_stack(t_liste	**stack)
 {
 	t_liste	*tmp;
-	double	mistakes;
-	double total_pairs;
 
-	if (!stack || !stack->next)
-		return (0);
-	mistakes = 0;
-	total_pairs = 0;
-	while (stack)
+	while (*stack)
 	{
-		tmp = stack->next;
-		while (tmp)
-		{
-			total_pairs++;
-			if (stack->value > tmp->value)
-				mistakes++;
-			tmp = tmp->next;
-		}
-		stack = stack->next;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
-	return (mistakes / total_pairs);
+}
+
+void	free_tab(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i])
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
