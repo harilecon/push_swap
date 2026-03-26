@@ -6,7 +6,7 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/26 09:46:33 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/26 11:28:03 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,16 @@ SRC =	bubble_sort.c\
 		choose_algo.c\
 		utils_01.c\
 		utils_02.c\
-		ft_free.c
+		ft_free.c\
+		ft_printf_address_error.c\
+		ft_printf_char_error.c\
+		ft_printf_error.c\
+		ft_printf_int_hexlow_error.c\
+		ft_printf_int_hexup_error.c\
+		ft_printf_int_nb_error.c\
+		ft_printf_int_unsigned_nb_error.c\
+		ft_printf_long_hexlow_error.c\
+		ft_printf_string_error.c
 
 
 OBJ = $(SRC:.c=.o)

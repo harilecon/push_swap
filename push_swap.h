@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:10:15 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:40:29 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include "ft_printf.h"
+# include "ft_printf_error.h"
 # include "libft/libft.h"
 
 typedef struct s_liste

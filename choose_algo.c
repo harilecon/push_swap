@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 07:42:22 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:13:14 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:44:02 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		}
 		else if (ft_strcmp("--bench", str[0]) == 0)
 		{
-			ft_printf("addaptive + --bench");
+			// choose_your_destiny(stack, bunch);
+			bunch(*bunch_mark);
 			return ;
 		}
 		else
@@ -99,8 +100,8 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		)
 		{
 			radix(stack, bunch_mark);
+			bunch(*bunch_mark);
 			return ;
-			ft_printf("--complex + --bench\n");
 		}
 		else if (str[0] && str[1] &&
 			(
@@ -113,6 +114,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		)
 		{
 			range(stack,bunch_mark);
+			bunch(*bunch_mark);
 			return ;
 		}
 		else if (str[0] && str[1] &&
@@ -126,6 +128,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		)
 		{
 			insertion(stack, bunch_mark);
+			bunch(*bunch_mark);
 			return ;
 		}
 		else
