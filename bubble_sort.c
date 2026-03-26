@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buble.c                                            :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:22:34 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 05:06:35 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 10:46:01 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ra_mv(t_liste **a, t_bunch **bunch_mark)
+static int	ra_mv(t_liste **a, t_bunch **bunch_mark)
 {
 	ra(a, bunch_mark);
 	ft_printf("ra\n");
 	return (1);
 }
 
-void	loop(t_liste **a, t_liste **b, int size, int i, t_bunch **bunch_mark)
+static void	loop(t_liste **a, t_liste **b, int size, int i, t_bunch **bunch_mark)
 {
 	int	ra_move;
 
@@ -47,20 +47,22 @@ void	loop(t_liste **a, t_liste **b, int size, int i, t_bunch **bunch_mark)
 	}
 }
 
-void	buble(t_liste	**stack, t_bunch	**bunch_mark)
+void	bubble(t_liste	**stack, t_bunch	**bunch_mark)
 {
 	int		size;
 	int		i;
-//	int		ra_move;
 	t_liste	*a;
 	t_liste	*b;
+	double disorder;
 
+	disorder= compute_disorder(*stack);
+	if (disorder == 0)
+		return ;
 	(*bunch_mark)->complexity = "bubble";
 	a = *stack;
 	b = NULL;
 	i = 0;
 	size = stack_size(*stack);
-//	ra_move = 0;
 	loop(&a, &b, size, i, bunch_mark);
 	ft_printf("pb\n");
 	pb(&a, &b, bunch_mark);

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 09:43:03 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:10:15 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_argument
 }			t_argument;
 
 char			**argument_table(int argc, char **argv);
-char			*which_algo(char **str);
+void			which_algo(char **str, t_liste **stack, t_bunch **bunch_mark);
 double			compute_disorder(t_liste *stack);
 long			greatest(t_liste	*stack);
 long			char_lo(char *str);
@@ -77,11 +77,12 @@ void			free_stack(t_liste	**stack);
 void			free_argument(t_argument **argument);
 void			add_back(t_liste **lst, t_liste *new_value);
 void			insertion(t_liste **stack, t_bunch **bunch_mark);
-void			buble(t_liste	**stac, t_bunch **bunch_mark);
+void			bubble(t_liste	**stac, t_bunch **bunch_mark);
 void			indexation(t_liste **stack);
 void			radix(t_liste **stack, t_bunch **bunch_mark);
 void			range(t_liste **stack, t_bunch **bunch_mark);
 void			bunch(t_bunch	*bunch_mark);
 void			initialisation_bunch_value(t_bunch **bunch_mark);
+void			choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark);
 
 #endif // PUSH_SWAP_H

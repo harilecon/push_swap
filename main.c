@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 09:41:10 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:03:10 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	t_liste	*tmp;
 	t_argument	*my_argument;
 
-	static t_bunch	*bunch_mark;
+	t_bunch	*bunch_mark;
 	int		i;
 
 	stack = NULL;
@@ -38,16 +38,14 @@ int	main(int argc, char **argv)
 			i++;
 		}
 	}
-
 		initialisation_bunch_value(&bunch_mark);
+		which_algo(my_argument->argument, &stack ,&bunch_mark);
 
-		which_algo(my_argument->argument);
-
-	// double disorder = compute_disorder(stack);
 
 	free_argument(&my_argument);
 	free(bunch_mark);
 	free_stack(&stack);
 	free_tab(str);
+	return (1);
 }
 

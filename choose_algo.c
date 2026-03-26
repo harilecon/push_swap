@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 07:42:22 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 09:33:59 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:13:14 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,66 +14,63 @@
 
 
 
-char	*which_algo(char **str)
+void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 {
 	int	i;
 
 	i = 0;
 	if (!str)
 	{
-		ft_printf("adaptive");
-		return("");
+		choose_your_destiny(stack, bunch_mark);
+		return ;
 	}
 	while (str[i])
 		i++;
-	if (i == 0)
-	{
-		ft_printf("--adaptive");
-			return ("--adaptive");
-	}
+
+
 	if (i == 1)
 	{
 		if (ft_strcmp("--simple", str[0]) == 0)
 		{
-			ft_printf("--simple");
-			return("simple");
+			insertion(stack, bunch_mark);
+			return ;
 		}
 		else if (ft_strcmp("--adaptive", str[0]) == 0)
 		{
 			ft_printf("--adaptive");
-			return("--adaptive");
+			return ;
 		}
 		else if (ft_strcmp("--medium", str[0]) == 0)
 		{
-			ft_printf("--medium");
-			return("medium");
+			range(stack, bunch_mark);
+			return ;
 		}
 		else if (ft_strcmp("--complex", str[0]) == 0)
 		{
-			ft_printf("--complex");
-			return("complex");
+			radix(stack, bunch_mark);
+			return ;
 		}
 		else if (ft_strcmp("--complex", str[0]) == 0)
 		{
 			ft_printf("--bench");
-			return("");
+			return ;
 		}
 		else if (ft_strcmp("--bench", str[0]) == 0)
 		{
-			ft_printf("--bench");
-			return("");
+			ft_printf("addaptive + --bench");
+			return ;
 		}
 		else
 		{
-			ft_printf("error 1 parameter\n");
-			return("");
+			ft_printf("Error\n");
+			return ;
 		}
 	}
 
 	if (i > 2)
 	{
 		ft_printf("error too lot\n");
-		return ("error");
+		return ;
 	}
 
 	if ( i == 2)
@@ -89,6 +86,7 @@ char	*which_algo(char **str)
 		)
 		{
 			ft_printf("--adaptive + --bench\n");
+			return ;
 		}
 		else if (str[0] && str[1] &&
 			(
@@ -100,6 +98,8 @@ char	*which_algo(char **str)
 			)
 		)
 		{
+			radix(stack, bunch_mark);
+			return ;
 			ft_printf("--complex + --bench\n");
 		}
 		else if (str[0] && str[1] &&
@@ -112,7 +112,8 @@ char	*which_algo(char **str)
 			)
 		)
 		{
-			ft_printf("--medium + --bench\n");
+			range(stack,bunch_mark);
+			return ;
 		}
 		else if (str[0] && str[1] &&
 			(
@@ -124,10 +125,13 @@ char	*which_algo(char **str)
 			)
 		)
 		{
-			ft_printf("--simple + --bench\n");
+			insertion(stack, bunch_mark);
+			return ;
 		}
 		else
-			ft_printf("error pour 2\n");
+		{
+			ft_printf("Error\n");
+			return ;
+		}
 	}
-	return ("");
 }

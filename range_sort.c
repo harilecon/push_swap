@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   range.c                                            :+:      :+:    :+:   */
+/*   range_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 08:33:46 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 10:47:19 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,11 @@ void	range(t_liste	**stack, t_bunch **bunch_mark)
 {
 	t_liste			*a;
 	t_liste			*b;
+	double			disorder;
 
+	disorder= compute_disorder(*stack);
+	if (disorder == 0)
+		return ;
 	indexation(stack);
 	a = *stack;
 	b = NULL;

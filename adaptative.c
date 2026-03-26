@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 05:54:41 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 07:28:04 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:12:36 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,23 @@ double	compute_disorder(t_liste *stack)
 		stack = stack->next;
 	}
 	return (mistakes / total_pairs);
+}
+
+void	choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark)
+{
+	double disorder;
+
+	disorder = compute_disorder(*stack);
+	if (disorder < 0.2)
+	{
+		insertion(stack, bunch_mark);
+	}
+	else if ((0.2 <= disorder) && (disorder < 0.5))
+	{
+		range(stack, bunch_mark);
+	}
+	else
+	{
+		radix(stack, bunch_mark);
+	}
 }
