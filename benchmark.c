@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:06:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:40:51 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:02:59 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	initialisation_bunch_value(t_bunch **bunch_mark)
 	(*bunch_mark)->pa = 0;
 	(*bunch_mark)->pb = 0;
 }
-
-void	bunch(t_bunch	*bunch_mark)
+void	bunch(double disorder, t_bunch	*bunch_mark)
 {
+	int total;
 
-	int total = bunch_mark->sa + bunch_mark->sb + bunch_mark->ss + bunch_mark->pa + bunch_mark->pb + bunch_mark->ra + bunch_mark->rb + bunch_mark->rr + bunch_mark->rra + bunch_mark->rrb + bunch_mark->rrr;
-	ft_printf_error("[bench]		disorder: \n");
+	total = bunch_mark->sa + bunch_mark->sb + bunch_mark->ss + bunch_mark->pa + bunch_mark->pb + bunch_mark->ra + bunch_mark->rb + bunch_mark->rr + bunch_mark->rra + bunch_mark->rrb + bunch_mark->rrr;
+	ft_printf_error("[bench]		disorder: %f\n", disorder);
 	ft_printf_error("[bench]		strategy: %s\n", bunch_mark->complexity);
 	ft_printf_error("[bench]		total_ops: %d\n", total);
 	ft_printf_error("[bench]		sa: %d	sb: %d	ss: %d	pa: %d	pb: %d\n", bunch_mark->sa, bunch_mark->sb, bunch_mark->ss, bunch_mark->pa, bunch_mark->pb);

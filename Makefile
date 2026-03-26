@@ -6,7 +6,7 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/26 11:28:03 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/26 12:37:49 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC =	bubble_sort.c\
 		ft_printf_int_nb_error.c\
 		ft_printf_int_unsigned_nb_error.c\
 		ft_printf_long_hexlow_error.c\
+		print_double_error.c\
 		ft_printf_string_error.c
 
 

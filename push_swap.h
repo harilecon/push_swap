@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:40:29 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 12:49:55 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void			bubble(t_liste	**stac, t_bunch **bunch_mark);
 void			indexation(t_liste **stack);
 void			radix(t_liste **stack, t_bunch **bunch_mark);
 void			range(t_liste **stack, t_bunch **bunch_mark);
-void			bunch(t_bunch	*bunch_mark);
+void	bunch(double disorder, t_bunch	*bunch_mark);
 void			initialisation_bunch_value(t_bunch **bunch_mark);
 void			choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark);
 

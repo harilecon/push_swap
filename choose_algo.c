@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 07:42:22 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:44:02 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:05:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 
 void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 {
+	double disorder;
 	int	i;
 
+	disorder = compute_disorder(*stack);
 	i = 0;
 	if (!str)
 	{
@@ -57,8 +59,8 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		}
 		else if (ft_strcmp("--bench", str[0]) == 0)
 		{
-			// choose_your_destiny(stack, bunch);
-			bunch(*bunch_mark);
+			choose_your_destiny(stack, bunch_mark);
+			bunch(disorder ,*bunch_mark);
 			return ;
 		}
 		else
@@ -100,7 +102,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		)
 		{
 			radix(stack, bunch_mark);
-			bunch(*bunch_mark);
+			bunch(disorder ,*bunch_mark);
 			return ;
 		}
 		else if (str[0] && str[1] &&
@@ -114,7 +116,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		)
 		{
 			range(stack,bunch_mark);
-			bunch(*bunch_mark);
+			bunch(disorder ,*bunch_mark);
 			return ;
 		}
 		else if (str[0] && str[1] &&
@@ -128,7 +130,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 		)
 		{
 			insertion(stack, bunch_mark);
-			bunch(*bunch_mark);
+			bunch(disorder ,*bunch_mark);
 			return ;
 		}
 		else
