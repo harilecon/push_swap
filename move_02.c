@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:52:20 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 09:36:05 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 12:17:06 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	rrb(t_liste **b, t_bunch **bunch_mark)
 	t_liste	*last;
 	t_liste	*b_last;
 
+	(*bunch_mark)->rrb++;
 	if (!b || !*b || !(*b)->next)
 		return ;
 	last = *b;
@@ -28,7 +29,6 @@ void	rrb(t_liste **b, t_bunch **bunch_mark)
 	last->previous = NULL;
 	(*b)->previous = last;
 	*b = last;
-	(*bunch_mark)->rrb++;
 }
 
 void	rrr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
