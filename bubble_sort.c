@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:22:34 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 10:46:01 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 08:54:20 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ void	bubble(t_liste	**stack, t_bunch	**bunch_mark)
 	int		i;
 	t_liste	*a;
 	t_liste	*b;
-	double disorder;
 
-	disorder= compute_disorder(*stack);
-	if (disorder == 0)
+	if (compute_disorder(*stack) == 0)
 		return ;
 	(*bunch_mark)->complexity = "bubble";
 	a = *stack;

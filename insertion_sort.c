@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 10:46:51 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 08:31:24 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	insertion(t_liste **stack, t_bunch **bunch_mark)
 	disorder= compute_disorder(*stack);
 	if (disorder == 0)
 		return ;
-	(*bunch_mark)->complexity = "insertion";
+	(*bunch_mark)->complexity = "O(n^2)";
 	b = NULL;
 	a = *stack;
 	if (a)

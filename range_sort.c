@@ -6,15 +6,15 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 12:15:56 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:34:53 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	greatest(t_liste	*stack)
+int	greatest(t_liste	*stack)
 {
-	long	value;
+	int	value;
 
 	value = stack->value;
 	while (stack)
@@ -96,7 +96,7 @@ void	range(t_liste	**stack, t_bunch **bunch_mark)
 	t_liste			*b;
 	double			disorder;
 
-	(*bunch_mark)->complexity = "range";
+	(*bunch_mark)->complexity = "O(n√n)";
 	disorder= compute_disorder(*stack);
 	if (disorder == 0)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:45:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 09:46:09 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:35:49 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-t_liste	*create_liste(long i)
+t_liste	*create_liste(int i)
 {
 	t_liste	*node;
 
@@ -45,11 +45,11 @@ t_liste	*create_liste(long i)
 	return (node);
 }
 
-long	char_lo(char *str)
+int	char_lo(char *str)
 {
 	int		signe;
 	int		i;
-	long	nb;
+	int		nb;
 
 	signe = 1;
 	i = 0;

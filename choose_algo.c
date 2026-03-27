@@ -6,13 +6,11 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 07:42:22 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 13:05:46 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 08:48:16 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 {
@@ -34,26 +32,31 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 	{
 		if (ft_strcmp("--simple", str[0]) == 0)
 		{
+			(*bunch_mark)->strategy = "simple";
 			insertion(stack, bunch_mark);
 			return ;
 		}
 		else if (ft_strcmp("--adaptive", str[0]) == 0)
 		{
-			ft_printf("--adaptive");
+			(*bunch_mark)->strategy = "adaptive";
+			choose_your_destiny(stack, bunch_mark);
 			return ;
 		}
 		else if (ft_strcmp("--medium", str[0]) == 0)
 		{
+			(*bunch_mark)->strategy = "medium";
 			range(stack, bunch_mark);
 			return ;
 		}
 		else if (ft_strcmp("--complex", str[0]) == 0)
 		{
+			(*bunch_mark)->strategy = "complex";
 			radix(stack, bunch_mark);
 			return ;
 		}
 		else if (ft_strcmp("--complex", str[0]) == 0)
 		{
+			(*bunch_mark)->strategy = "complex";
 			ft_printf("--bench");
 			return ;
 		}
@@ -72,7 +75,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 
 	if (i > 2)
 	{
-		ft_printf("error too lot\n");
+		ft_printf("Error\n");
 		return ;
 	}
 
@@ -88,7 +91,8 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 			)
 		)
 		{
-			ft_printf("--adaptive + --bench\n");
+			choose_your_destiny(stack, bunch_mark);
+			bunch(disorder, *bunch_mark);
 			return ;
 		}
 		else if (str[0] && str[1] &&
@@ -101,6 +105,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 			)
 		)
 		{
+			(*bunch_mark)->strategy = "complex";
 			radix(stack, bunch_mark);
 			bunch(disorder ,*bunch_mark);
 			return ;
@@ -115,6 +120,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 			)
 		)
 		{
+			(*bunch_mark)->strategy = "medium";
 			range(stack,bunch_mark);
 			bunch(disorder ,*bunch_mark);
 			return ;
@@ -129,6 +135,7 @@ void	which_algo(char **str, t_liste **stack, t_bunch **bunch_mark)
 			)
 		)
 		{
+			(*bunch_mark)->strategy = "simple";
 			insertion(stack, bunch_mark);
 			bunch(disorder ,*bunch_mark);
 			return ;

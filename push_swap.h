@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 12:49:55 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:38:01 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_liste
 {
 	unsigned int	index;
-	long			value;
+	int			value;
 	struct s_liste	*next;
 	struct s_liste	*previous;
 }				t_liste;
@@ -52,10 +52,10 @@ typedef struct s_argument
 char			**argument_table(int argc, char **argv);
 void			which_algo(char **str, t_liste **stack, t_bunch **bunch_mark);
 double			compute_disorder(t_liste *stack);
-long			greatest(t_liste	*stack);
-long			char_lo(char *str);
+int			greatest(t_liste	*stack);
+int			char_lo(char *str);
 t_argument		*struct_argument(char **str);
-t_liste			*create_liste(long i);
+t_liste			*create_liste(int i);
 int				check_order(t_liste *stack);
 int				high_index(t_liste	*liste);
 int				power(long nb);

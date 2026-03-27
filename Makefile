@@ -6,12 +6,12 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/26 12:37:49 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/27 07:56:27 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 SRC =	bubble_sort.c\
 		ft_printf_address.c\

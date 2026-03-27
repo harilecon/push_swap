@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 05:54:41 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:12:36 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 08:34:59 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark)
 {
 	double disorder;
 
+	(*bunch_mark)->strategy = "adaptive";
 	disorder = compute_disorder(*stack);
 	if (disorder < 0.2)
 	{

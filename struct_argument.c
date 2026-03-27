@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 10:17:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 09:43:19 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:09:57 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void free_argument(t_argument **argument)
 }
 
 
-int	not_number(char *str)
+static int	not_number(char *str)
 {
 	int	i;
 
@@ -49,7 +49,11 @@ int	not_number(char *str)
 		return (1);
 	i = 0;
 	if (str[0] == '-' || str[0] == '+')
+	{
 		i++;
+		if (!str[i])
+			return (1);
+	}
 	{
 		while (str[i])
 		{
