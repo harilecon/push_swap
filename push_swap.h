@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:38:01 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 13:53:13 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,8 @@ void			range(t_liste **stack, t_bunch **bunch_mark);
 void	bunch(double disorder, t_bunch	*bunch_mark);
 void			initialisation_bunch_value(t_bunch **bunch_mark);
 void			choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark);
+
+
+int		check_doublon(char **table);
 
 #endif // PUSH_SWAP_H

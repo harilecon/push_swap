@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:45:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:35:49 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:19:36 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	char_lo(char *str)
 		signe = -1;
 		i = 1;
 	}
+	if (str[0] == '+')
+		i++;
 	nb = 0;
 	while (str[i] && ((str[i] >= '0') && (str[i] <= '9')))
 	{

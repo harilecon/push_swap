@@ -6,7 +6,7 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/27 07:56:27 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/27 13:28:07 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC =	bubble_sort.c\
 		ft_printf_int_unsigned_nb_error.c\
 		ft_printf_long_hexlow_error.c\
 		print_double_error.c\
-		ft_printf_string_error.c
+		ft_printf_string_error.c\
+		doublon.c
 
 
 OBJ = $(SRC:.c=.o)

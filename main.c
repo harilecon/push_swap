@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 13:01:02 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:13:39 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ int	main(int argc, char **argv)
 	str = argument_table(argc, argv);
 
 	my_argument = struct_argument(str);
+
+	if (check_doublon(my_argument->number))
+	{
+		free_tab(str);
+		free(bunch_mark);
+		free_argument(&my_argument);
+		ft_printf("Error\n");
+		return (-1);
+	}
 
 	i = 0;
 	if (my_argument->number)
