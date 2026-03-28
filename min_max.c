@@ -1,7 +1,18 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   min_max.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/28 07:41:46 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/03/28 07:54:17 by tsitoand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int min_max(char *str)
+#include "push_swap.h"
+
+static int	min_max(char *str)
 {
 	int	i;
 	int	signe;
@@ -18,25 +29,34 @@ int min_max(char *str)
 		i++;
 	while (str[i] == '0')
 		i++;
-	len = strlen(str + i);
+	len = ft_strlen(str + i);
 	if (len < 10)
 		return(1);
 
-	printf("len = %d\n\n", strlen(str+ i));
 	if (len == 10)
 	{
 		if (signe == 1)
-			if (strncmp(str + i, "2147483647", 11) <= 0)
+			if (ft_strncmp(str + i, "2147483647", 11) <= 0)
 				return (1);
 		if (signe == -1)
-			if (strncmp(str + i, "2147483648", 11) <= 0)
+			if (ft_strncmp(str + i, "2147483648", 11) <= 0)
 				return (1);
 	}
 	return (0);
 }
 
-int main(int grc, char **argv)
+char	**table_check_min_max(char **str)
 {
-	printf("%d", min_max(argv[1]));
-	return 0;
+	int	i;
+
+	i = 0;
+	if (!str || !str[i])
+		return (NULL);
+	while (str[i])
+	{
+		if (!min_max(str[i]))
+			return (NULL);
+		i++;
+	}
+	return (str);
 }
