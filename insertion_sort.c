@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/29 08:29:46 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/29 09:00:54 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,25 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 		size = stack_size(*a);
 		index_low = low_index(*a);
 		i = 0;
-		if (index_low <= (size /2))
+		if (size != 1)
 		{
-			while (i < index_low - 1)
+			if (index_low <= (size /2))
 			{
-				ft_printf("ra\n");
-				ra(a, bunch_mark);
-				i++;
+				while (i < index_low - 1)
+				{
+					ft_printf("ra\n");
+					ra(a, bunch_mark);
+					i++;
+				}
 			}
-		}
-		else
-		{
-			while (i < (size - index_low + 1))
+			else
 			{
-				ft_printf("rra\n");
-				rra(a, bunch_mark);
-				i++;
+				while (i < (size - index_low + 1))
+				{
+					ft_printf("rra\n");
+					rra(a, bunch_mark);
+					i++;
+				}
 			}
 		}
 		ft_printf("pb\n");
