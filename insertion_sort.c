@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 08:31:24 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/29 08:29:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,30 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
 	int		index_low;
 	int		i;
+	int		size;
 
 	while (*a)
 	{
+		size = stack_size(*a);
 		index_low = low_index(*a);
 		i = 0;
-		while (i < index_low - 1)
+		if (index_low <= (size /2))
 		{
-			ft_printf("ra\n");
-			ra(a, bunch_mark);
-			i++;
+			while (i < index_low - 1)
+			{
+				ft_printf("ra\n");
+				ra(a, bunch_mark);
+				i++;
+			}
+		}
+		else
+		{
+			while (i < (size - index_low + 1))
+			{
+				ft_printf("rra\n");
+				rra(a, bunch_mark);
+				i++;
+			}
 		}
 		ft_printf("pb\n");
 		pb(a, b, bunch_mark);
@@ -42,6 +56,11 @@ void	insertion(t_liste **stack, t_bunch **bunch_mark)
 	if (disorder == 0)
 		return ;
 	(*bunch_mark)->complexity = "O(n^2)";
+	if (stack_size(*stack) == 2)
+	{
+		two_element(stack, bunch_mark);
+		return ;
+	}
 	b = NULL;
 	a = *stack;
 	if (a)

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:34:53 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/29 08:05:19 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ static void	for_b(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	while (*b)
 	{
 		high = high_index(*b);
-		while (nb_rb < high - 1)
-		{
-			ft_printf("rb\n");
-			rb(b, bunch_mark);
-			nb_rb++;
+			while (nb_rb < high - 1)
+			{
+				ft_printf("rb\n");
+				rb(b, bunch_mark);
+				nb_rb++;
 		}
 		ft_printf("pa\n");
 		pa(a, b, bunch_mark);
@@ -98,6 +98,11 @@ void	range(t_liste	**stack, t_bunch **bunch_mark)
 
 	(*bunch_mark)->complexity = "O(n√n)";
 	disorder= compute_disorder(*stack);
+	if (stack_size(*stack) == 2)
+	{
+		two_element(stack, bunch_mark);
+		return ;
+	}
 	if (disorder == 0)
 		return ;
 	indexation(stack);

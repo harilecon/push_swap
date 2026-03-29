@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/28 09:13:13 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:51:17 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 
 	t_bunch	*bunch_mark;
 	int		i;
+	if (argc < 2)
+		return (0);
 
 	stack = NULL;
 	bunch_mark = malloc(sizeof(t_bunch));

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:34:38 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/29 08:04:56 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,11 @@ void	radix(t_liste **stack, t_bunch **bunch_mark)
 		return ;
 	(*bunch_mark)->complexity = "O(nlog(n))";
 	indexation(stack);
+	if (stack_size(*stack) == 2)
+	{
+		two_element(stack, bunch_mark);
+		return ;
+	}
 	a = *stack;
 	b = NULL;
 	bits = max_bits(a);

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 08:22:34 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 08:54:20 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/29 08:05:50 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ void	bubble(t_liste	**stack, t_bunch	**bunch_mark)
 	if (compute_disorder(*stack) == 0)
 		return ;
 	(*bunch_mark)->complexity = "bubble";
+	if (stack_size(*stack) == 2)
+	{
+		two_element(stack, bunch_mark);
+		return ;
+	}
 	a = *stack;
 	b = NULL;
 	i = 0;
