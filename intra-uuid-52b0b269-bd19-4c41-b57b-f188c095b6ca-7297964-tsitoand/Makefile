@@ -6,12 +6,12 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/28 09:08:35 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/26 11:28:03 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 SRC =	bubble_sort.c\
 		ft_printf_address.c\
@@ -46,11 +46,7 @@ SRC =	bubble_sort.c\
 		ft_printf_int_nb_error.c\
 		ft_printf_int_unsigned_nb_error.c\
 		ft_printf_long_hexlow_error.c\
-		print_double_error.c\
-		ft_printf_string_error.c\
-		doublon.c\
-		min_max.c\
-		check_null_space.c
+		ft_printf_string_error.c
 
 
 OBJ = $(SRC:.c=.o)

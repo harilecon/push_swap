@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 12:38:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 12:54:32 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:36:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static int	if_statement(const char *s, int i, int j)
 				return (-1);
 		}
 		j = 0;
-		while ("cspdiuxXf%"[j])
+		while ("cspdiuxX%"[j])
 		{
-			if ("cspdiuxXf%"[j] == s[i + 1])
+			if ("cspdiuxX%"[j] == s[i + 1])
 				break ;
 			j++;
 		}
-		if ("cspdiuxXf%"[j] == '\0')
+		if ("cspdiuxX%"[j] == '\0')
 		{
 			if ((i > 1) && (s[i - 1] != '%'))
 				return (-1);
@@ -58,9 +58,9 @@ static int	test_char(char c)
 	int	i;
 
 	i = 0;
-	while ("cspdiuxXf%"[i])
+	while ("cspdiuxX%"[i])
 	{
-		if ("cspdiuxXf%"[i] == c)
+		if ("cspdiuxX%"[i] == c)
 			return (1);
 		i++;
 	}
@@ -85,11 +85,6 @@ static int	condition(const char *s, int i, va_list args)
 		return (ft_printf_string_error(va_arg(args, char *)));
 	else if (s[i + 1] == 'c')
 		return (ft_printf_char_error(va_arg(args, int)));
-	else if (s[i + 1] == 'f')
-	{
-		ft_printf_double(va_arg(args, double), 2);
-		return (0);
-	}
 	else if (s[i + 1] == '%')
 		return (ft_printf_char_error('%'));
 	return (0);

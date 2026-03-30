@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/28 09:06:02 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:40:29 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_liste
 {
 	unsigned int	index;
-	int			value;
+	long			value;
 	struct s_liste	*next;
 	struct s_liste	*previous;
 }				t_liste;
@@ -50,14 +50,12 @@ typedef struct s_argument
 }			t_argument;
 
 char			**argument_table(int argc, char **argv);
-char			**table_check_min_max(char **str);
-char			**check_space_null(int	argc , char **argv);
 void			which_algo(char **str, t_liste **stack, t_bunch **bunch_mark);
 double			compute_disorder(t_liste *stack);
-int				greatest(t_liste	*stack);
-int				char_lo(char *str);
+long			greatest(t_liste	*stack);
+long			char_lo(char *str);
 t_argument		*struct_argument(char **str);
-t_liste			*create_liste(int i);
+t_liste			*create_liste(long i);
 int				check_order(t_liste *stack);
 int				high_index(t_liste	*liste);
 int				power(long nb);
@@ -84,11 +82,8 @@ void			bubble(t_liste	**stac, t_bunch **bunch_mark);
 void			indexation(t_liste **stack);
 void			radix(t_liste **stack, t_bunch **bunch_mark);
 void			range(t_liste **stack, t_bunch **bunch_mark);
-void			bunch(double disorder, t_bunch	*bunch_mark);
+void			bunch(t_bunch	*bunch_mark);
 void			initialisation_bunch_value(t_bunch **bunch_mark);
 void			choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark);
-
-
-int		check_doublon(char **table);
 
 #endif // PUSH_SWAP_H

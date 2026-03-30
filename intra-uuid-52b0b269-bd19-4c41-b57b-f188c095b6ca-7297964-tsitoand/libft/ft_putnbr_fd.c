@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_double_error.c                               :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/26 11:50:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 13:00:05 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/02/03 16:22:44 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/02/04 11:57:17 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "libft.h"
 
-void	ft_printf_double(double nb, int presition)
+static void	number_fd(long nb, unsigned int fd)
 {
-	int	nb_int;
-	int power;
-	int	i;
+	char	c;
 
-	power = 1;
-	i = 0;
-	while (i < presition)
+	if (nb < 0)
 	{
-		power = power * 10;
-		i++;
+		ft_putchar_fd('-', fd);
+		nb = -nb;
 	}
-	nb_int = (int)nb;
-	ft_printf_int_nb_error(nb_int);
-	ft_printf_char_error('.');
-	nb = nb - nb_int;
-	nb_int = (int) (nb * power);
-	ft_printf_int_nb_error(nb_int);
+	if (nb != 0)
+	{
+		if (nb)
+			number_fd(nb / 10, fd);
+		c = nb % 10 + '0';
+		ft_putchar_fd(c, fd);
+	}
 }
 
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	nb;
 
+	nb = n;
+	if (nb == 0)
+		ft_putchar_fd('0', fd);
+	else
+		number_fd(nb, fd);
+}

@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 16:22:44 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:36:27 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/02/05 15:13:41 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/02/05 15:21:39 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	number_fd(long nb, unsigned int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	c;
-
-	if (nb < 0)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
+		f(lst->content);
+		lst = lst ->next;
 	}
-	if (nb != 0)
-	{
-		if (nb)
-			number_fd(nb / 10, fd);
-		c = nb % 10 + '0';
-		ft_putchar_fd(c, fd);
-	}
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	long	nb;
-
-	nb = n;
-	if (nb == 0)
-		ft_putchar_fd('0', fd);
-	else
-		number_fd(nb, fd);
 }

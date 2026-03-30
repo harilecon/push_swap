@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:34:38 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 10:47:37 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	indexation(t_liste	**stack)
 {
 	int		j;
-	int	value;
+	long	value;
 	t_liste	*tmp;
 	t_liste	*tmp_02;
 
@@ -101,10 +101,12 @@ void	radix(t_liste **stack, t_bunch **bunch_mark)
 	t_liste			*b;
 	int				j;
 	int				bits;
+	double			disorder;
 
-	if (compute_disorder(*stack) == 0)
+	disorder= compute_disorder(*stack);
+	if (disorder == 0)
 		return ;
-	(*bunch_mark)->complexity = "O(nlog(n))";
+	(*bunch_mark)->complexity = "radix";
 	indexation(stack);
 	a = *stack;
 	b = NULL;

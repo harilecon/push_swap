@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:45:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 12:27:28 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/26 09:46:09 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,24 @@
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	if (!s1 && s2)
 		return(s2[i]);
 	if (s1 && !s2)
 		return (s1[i]);
 	if (!s1 && !s2)
 		return (0);
-
-	while (s1[i] == '0')
-		i++;
-	while (s2[j] == '0')
-		j++;
-
-	while (s1[i] && s1[i] == s2[j])
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 	{
+		if (s1[i] != s2[i])
+			break ;
 		i++;
-		j++;
 	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
+	return (s1[i] - s2[i]);
 }
 
-t_liste	*create_liste(int i)
+t_liste	*create_liste(long i)
 {
 	t_liste	*node;
 
@@ -52,11 +45,11 @@ t_liste	*create_liste(int i)
 	return (node);
 }
 
-int	char_lo(char *str)
+long	char_lo(char *str)
 {
 	int		signe;
 	int		i;
-	int		nb;
+	long	nb;
 
 	signe = 1;
 	i = 0;
@@ -67,8 +60,6 @@ int	char_lo(char *str)
 		signe = -1;
 		i = 1;
 	}
-	if (str[0] == '+')
-		i++;
 	nb = 0;
 	while (str[i] && ((str[i] >= '0') && (str[i] <= '9')))
 	{

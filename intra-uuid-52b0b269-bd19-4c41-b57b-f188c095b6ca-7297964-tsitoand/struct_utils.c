@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_utils.c                                     :+:      :+:    :+:   */
+/*   move_03.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:35:19 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/24 23:12:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ unsigned int	stack_size(t_liste	*liste)
 int	high_index(t_liste	*liste)
 {
 	t_liste	*tmp;
-	int	high;
+	long	high;
 	int		i;
 
 	if (!liste)
@@ -91,7 +91,7 @@ static int	low_value(t_liste *liste)
 
 unsigned int	low_index(t_liste *liste)
 {
-	int	low;
+	long	low;
 	int		i;
 
 	if (!liste)
