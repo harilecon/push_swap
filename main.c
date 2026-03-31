@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:36:07 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:08:24 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	stack_creation(char **number, t_liste **stack)
 	{
 		while (number[i])
 		{
-			tmp = create_liste(char_lo(number[i]));
+			tmp = create_liste(char_to_int(number[i]));
 			add_back(stack, tmp);
 			i++;
 		}
@@ -44,13 +44,12 @@ int	main(int argc, char **argv)
 	t_argument	*my_argument;
 	t_bunch		*bunch_mark;
 
+	if (argc == 1)
+		return (1);
 	stack = NULL;
 	bunch_mark = malloc(sizeof(t_bunch));
 	if (!check_space_null(argc, argv))
-	{
-		ft_printf("Error\n");
-		return (-1);
-	}
+		return (ft_printf("Error\n"));
 	my_argument = struct_argument(argument_table(argc, argv));
 	if (check_doublon(my_argument->number)
 		|| !table_check_min_max(my_argument->number))

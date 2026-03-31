@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adaptative.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 05:54:41 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/29 15:40:59 by haranivo         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:34:50 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,9 @@ void	choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark)
 	(*bunch_mark)->strategy = "adaptive";
 	disorder = compute_disorder(*stack);
 	if (disorder < 0.2)
-	{
 		insertion(stack, bunch_mark);
-	}
 	else if ((0.2 <= disorder) && (disorder < 0.5))
-	{
 		range(stack, bunch_mark);
-	}
 	else
-	{
 		radix(stack, bunch_mark);
-	}
 }

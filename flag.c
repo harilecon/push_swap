@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 12:56:59 by haranivo          #+#    #+#             */
-/*   Updated: 2026/03/31 14:17:48 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 19:00:16 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,8 @@ static void	multi_flag(char **str, t_liste **stack, t_bunch **bunch_mark)
 void	get_flag(char **str, t_liste **stack, t_bunch **bunch_mark)
 {
 	int		i;
-	double	disorder;
 
 	i = 0;
-	disorder = compute_disorder(*stack);
 	if (!str)
 		choose_your_destiny(stack, bunch_mark);
 	else

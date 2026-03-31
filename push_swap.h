@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 10:51:02 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:26:48 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char			**check_space_null(int argc, char **argv);
 void			get_flag(char **str, t_liste **stack, t_bunch **bunch_mark);
 double			compute_disorder(t_liste *stack);
 int				greatest(t_liste	*stack);
-int				char_lo(char *str);
+int				char_to_int(char *str);
 t_argument		*struct_argument(char **str);
 t_liste			*create_liste(int i);
 int				check_order(t_liste *stack);
@@ -66,6 +66,7 @@ int				check_doublon(char **table);
 unsigned int	low_index(t_liste *liste);
 unsigned int	max_bits(t_liste *stack);
 unsigned int	stack_size(t_liste	*liste);
+void			two_element(t_liste	**stack, t_bunch **bunch_mark);
 void			sa(t_liste **a, t_bunch **bunch_mark);
 void			sb(t_liste **b, t_bunch **bunch_mark);
 void			ss(t_liste **a, t_liste **b, t_bunch **bunch_mark);
