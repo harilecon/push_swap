@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   adaptative.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 05:54:41 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 08:34:59 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:40:59 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 double	compute_disorder(t_liste *stack)
 {
 	t_liste	*tmp;
 	double	mistakes;
-	double total_pairs;
+	double	total_pairs;
 
 	if (!stack || !stack->next)
 		return (0);
@@ -39,7 +39,7 @@ double	compute_disorder(t_liste *stack)
 
 void	choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark)
 {
-	double disorder;
+	double	disorder;
 
 	(*bunch_mark)->strategy = "adaptive";
 	disorder = compute_disorder(*stack);

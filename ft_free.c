@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:40:44 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 09:41:23 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:22:23 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_tab(char **str)
 	while (str[i])
 	{
 		if (str[i])
-		free(str[i]);
+			free(str[i]);
 		i++;
 	}
 	free(str);

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:35:19 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:58:12 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ unsigned int	stack_size(t_liste	*liste)
 int	high_index(t_liste	*liste)
 {
 	t_liste	*tmp;
-	int	high;
+	int		high;
 	int		i;
 
 	if (!liste)
@@ -92,7 +92,7 @@ static int	low_value(t_liste *liste)
 unsigned int	low_index(t_liste *liste)
 {
 	int	low;
-	int		i;
+	int	i;
 
 	if (!liste)
 		return (0);

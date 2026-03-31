@@ -6,17 +6,32 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 07:41:46 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/28 07:54:17 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:38:40 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	compare(int i, char *str, int signe, int len)
+{
+	if (len == 10)
+	{
+		if (signe == 1)
+			if (ft_strncmp(str + i, "2147483647", 11) <= 0)
+				return (1);
+		if (signe == -1)
+			if (ft_strncmp(str + i, "2147483648", 11) <= 0)
+				return (1);
+	}
+	return (0);
+}
 
 static int	min_max(char *str)
 {
 	int	i;
 	int	signe;
 	int	len;
+	int	comp;
 
 	signe = 1;
 	i = 0;
@@ -31,16 +46,11 @@ static int	min_max(char *str)
 		i++;
 	len = ft_strlen(str + i);
 	if (len < 10)
-		return(1);
-
+		return (1);
 	if (len == 10)
 	{
-		if (signe == 1)
-			if (ft_strncmp(str + i, "2147483647", 11) <= 0)
-				return (1);
-		if (signe == -1)
-			if (ft_strncmp(str + i, "2147483648", 11) <= 0)
-				return (1);
+		comp = compare(i, str, signe, len);
+		return (comp);
 	}
 	return (0);
 }

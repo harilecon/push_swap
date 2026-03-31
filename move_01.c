@@ -6,11 +6,29 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:28:36 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/25 09:35:51 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 14:29:44 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ss_f(t_liste **a)
+{
+	t_liste	*first;
+	t_liste	*second;
+
+	if (!a || !(*a) || !(*a)->next)
+		return ;
+	first = *a;
+	second = (*a)->next;
+	first->previous = second;
+	first->next = second->next;
+	second->next = first;
+	second->previous = NULL;
+	*a = second;
+	if (first->next)
+		first->next->previous = first;
+}
 
 void	sa(t_liste **a, t_bunch **bunch_mark)
 {
@@ -18,6 +36,7 @@ void	sa(t_liste **a, t_bunch **bunch_mark)
 	t_liste	*second;
 
 	(*bunch_mark)->sa++;
+	ft_printf("sa\n");
 	if (!a || !(*a) || !(*a)->next)
 		return ;
 	first = *a;
@@ -36,9 +55,10 @@ void	sb(t_liste **b, t_bunch **bunch_mark)
 	t_liste	*first;
 	t_liste	*second;
 
+	ft_printf("sb\n");
 	(*bunch_mark)->sb++;
 	if (!b || !(*b) || !(*b)->next)
-	return ;
+		return ;
 	first = *b;
 	second = (*b)->next;
 	first->previous = second;
@@ -52,28 +72,8 @@ void	sb(t_liste **b, t_bunch **bunch_mark)
 
 void	ss(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
+	ft_printf("ss\n");
 	(*bunch_mark)->ss++;
-	(*bunch_mark)->sa--;
-	(*bunch_mark)->sb--;
-	sa(a, bunch_mark);
-	sb(b, bunch_mark);
-}
-
-void	ra(t_liste **a, t_bunch **bunch_mark)
-{
-	t_liste	*last;
-	t_liste	*first;
-
-	(*bunch_mark)->ra++;
-	if ((!a) || (!*a) || (!(*a)->next))
-		return ;
-	last = *a;
-	first = *a;
-	while (last->next)
-		last = last->next;
-	(*a) = (*a)->next;
-	(*a)->previous = NULL;
-	last->next = first;
-	first->previous = last;
-	first->next = NULL;
+	ss_f(a);
+	ss_f(b);
 }

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:06:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 08:29:17 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/30 20:25:39 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	initialisation_bunch_value(t_bunch **bunch_mark)
 {
@@ -29,15 +28,24 @@ void	initialisation_bunch_value(t_bunch **bunch_mark)
 	(*bunch_mark)->pa = 0;
 	(*bunch_mark)->pb = 0;
 }
-void	bunch(double disorder, t_bunch	*bunch_mark)
+
+void	bunch(double disorder, t_bunch *bunch_mark)
 {
-	int total;
+	int	total;
 
-	total = bunch_mark->sa + bunch_mark->sb + bunch_mark->ss + bunch_mark->pa + bunch_mark->pb + bunch_mark->ra + bunch_mark->rb + bunch_mark->rr + bunch_mark->rra + bunch_mark->rrb + bunch_mark->rrr;
+	total = bunch_mark->sa + bunch_mark->sb + bunch_mark->ss + bunch_mark->pa
+		+ bunch_mark->pb + bunch_mark->ra + bunch_mark->rb + bunch_mark->rr
+		+ bunch_mark->rra + bunch_mark->rrb + bunch_mark->rrr;
 	ft_printf_error("[bench]		disorder: %f%%\n", disorder * 100);
-	ft_printf_error("[bench]		strategy: %s / %s\n",bunch_mark->strategy, bunch_mark->complexity);
+	ft_printf_error("[bench]		strategy: %s / %s\n", bunch_mark->strategy,
+		bunch_mark->complexity);
 	ft_printf_error("[bench]		total_ops: %d\n", total);
-	ft_printf_error("[bench]		sa: %d	sb: %d	ss: %d	pa: %d	pb: %d\n", bunch_mark->sa, bunch_mark->sb, bunch_mark->ss, bunch_mark->pa, bunch_mark->pb);
-	ft_printf_error("[bench]		ra: %d	rb: %d	rr: %d	rra: %d	rrb: %d	rrr: %d\n", bunch_mark->ra, bunch_mark->rb, bunch_mark->rr,bunch_mark->rra, bunch_mark->rrb, bunch_mark->rrr);
-
+	ft_printf_error("[bench]		sa: %d	sb: %d	ss: %d	pa: %d	pb: %d\n",
+		bunch_mark->sa, bunch_mark->sb, bunch_mark->ss,
+		bunch_mark->pa, bunch_mark->pb);
+	ft_printf_error("[bench]\t\tra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		bunch_mark->ra,
+		bunch_mark->rb, bunch_mark->rr,
+		bunch_mark->rra, bunch_mark->rrb,
+		bunch_mark->rrr);
 }

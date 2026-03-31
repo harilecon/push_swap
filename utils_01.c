@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:45:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 12:27:28 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 14:28:42 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,15 @@ int	ft_strcmp(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	if (!s1 && s2)
-		return(s2[i]);
+		return (s2[i]);
 	if (s1 && !s2)
 		return (s1[i]);
 	if (!s1 && !s2)
 		return (0);
-
 	while (s1[i] == '0')
 		i++;
 	while (s2[j] == '0')
 		j++;
-
 	while (s1[i] && s1[i] == s2[j])
 	{
 		i++;

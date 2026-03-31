@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 08:31:24 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:16:47 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 		i = 0;
 		while (i < index_low - 1)
 		{
-			ft_printf("ra\n");
 			ra(a, bunch_mark);
 			i++;
 		}
-		ft_printf("pb\n");
 		pb(a, b, bunch_mark);
 	}
 }
@@ -38,7 +36,7 @@ void	insertion(t_liste **stack, t_bunch **bunch_mark)
 	t_liste	*b;
 	double	disorder;
 
-	disorder= compute_disorder(*stack);
+	disorder = compute_disorder(*stack);
 	if (disorder == 0)
 		return ;
 	(*bunch_mark)->complexity = "O(n^2)";
@@ -47,9 +45,6 @@ void	insertion(t_liste **stack, t_bunch **bunch_mark)
 	if (a)
 		for_a(&a, &b, bunch_mark);
 	while (b)
-	{
-		ft_printf("pa\n");
 		pa(&a, &b, bunch_mark);
-	}
 	*stack = a;
 }

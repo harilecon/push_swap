@@ -3,18 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
+#    By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/28 09:08:35 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/03/30 21:23:17 by haranivo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
-SRC =	bubble_sort.c\
-		ft_printf_address.c\
+SRC = ft_printf_address.c\
 		ft_printf.c\
 		ft_printf_char.c\
 		ft_printf_int_hexlow.c\
@@ -34,7 +33,7 @@ SRC =	bubble_sort.c\
 		adaptative.c\
 		benchmark.c\
 		struct_argument.c\
-		choose_algo.c\
+		flag.c\
 		utils_01.c\
 		utils_02.c\
 		ft_free.c\

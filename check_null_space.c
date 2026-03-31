@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 08:56:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/28 09:13:53 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 14:30:35 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 static int	check_null(char *str)
 {
-	int len;
+	int	len;
 
 	if (!str)
 		return (-1);
-
 	len = ft_strlen(str);
 	if (len == 0)
 		return (1);
@@ -27,12 +26,11 @@ static int	check_null(char *str)
 
 static int	check_space(char *str)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	if (!str)
 		return (-1);
-
 	i = 0;
 	len = ft_strlen(str);
 	while (str[i] == ' ')
@@ -42,9 +40,9 @@ static int	check_space(char *str)
 	return (0);
 }
 
-char	**check_space_null(int	argc , char **argv)
+char	**check_space_null(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	if (!argv)
 		return (NULL);
@@ -55,5 +53,5 @@ char	**check_space_null(int	argc , char **argv)
 			return (NULL);
 		i++;
 	}
-	return(argv);
+	return (argv);
 }

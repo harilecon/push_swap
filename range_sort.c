@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:34:53 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:57:19 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,9 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	while (*a)
 	{
 		if ((*a)->index <= (i + 1) * chunck)
-		{
-			ft_printf("pb\n");
 			pb(a, b, bunch_mark);
-		}
 		else
-		{
-			ft_printf("ra\n");
 			ra(a, bunch_mark);
-		}
 		if (stack_size(*b) >= (i + 1) * chunck)
 			i++;
 	}
@@ -75,15 +69,12 @@ static void	for_b(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 		high = high_index(*b);
 		while (nb_rb < high - 1)
 		{
-			ft_printf("rb\n");
 			rb(b, bunch_mark);
 			nb_rb++;
 		}
-		ft_printf("pa\n");
 		pa(a, b, bunch_mark);
 		while (nb_rb)
 		{
-			ft_printf("rrb\n");
 			rrb(b, bunch_mark);
 			nb_rb--;
 		}
@@ -97,7 +88,7 @@ void	range(t_liste	**stack, t_bunch **bunch_mark)
 	double			disorder;
 
 	(*bunch_mark)->complexity = "O(n√n)";
-	disorder= compute_disorder(*stack);
+	disorder = compute_disorder(*stack);
 	if (disorder == 0)
 		return ;
 	indexation(stack);

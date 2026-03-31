@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/27 09:34:38 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/03/31 14:29:14 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	indexation(t_liste	**stack)
 {
 	int		j;
-	int	value;
+	int		value;
 	t_liste	*tmp;
 	t_liste	*tmp_02;
 
@@ -82,15 +82,9 @@ static void	first(t_liste **a, t_liste **b, int j, t_bunch **bunch_mark)
 	while (i < size_a)
 	{
 		if ((((*a)->index >> j) & 1) == 0)
-		{
-			ft_printf("pb\n");
 			pb(a, b, bunch_mark);
-		}
 		else
-		{
-			ft_printf("ra\n");
 			ra(a, bunch_mark);
-		}
 		i++;
 	}
 }
@@ -116,10 +110,7 @@ void	radix(t_liste **stack, t_bunch **bunch_mark)
 	{
 		first(&a, &b, j, bunch_mark);
 		while (b)
-		{
-			ft_printf("pa\n");
 			pa(&a, &b, bunch_mark);
-		}
 		j++;
 	}
 	*stack = a;
