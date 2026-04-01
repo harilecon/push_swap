@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:47:29 by haranivo          #+#    #+#             */
-/*   Updated: 2026/04/01 14:03:42 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:28:30 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,29 @@ static void	back_move(unsigned int pos, t_liste **a, t_liste **b,
 	pb(a, b, bunch_mark);
 }
 
-void	five_elements(t_liste **stack, t_bunch **bunch_mark)
+void	five_elements(t_liste **stack, t_bunch **bunch_mark, double disorder)
 {
 	unsigned int	pos;
 	unsigned int	size;
-	t_liste			*a;
 	t_liste			*b;
 
-	a = *stack;
 	b = NULL;
+	if (disorder == 0)
+		return ;
 	size = 5;
 	while (size > 3)
 	{
-		pos = low_index(a);
+		pos = low_index(*stack);
 		if (pos <= size / 2 + 1)
-			front_move(pos, &a, &b, bunch_mark);
+			front_move(pos, stack, &b, bunch_mark);
 		else if (pos > size / 2 + 1)
-			back_move(pos, &a, &b, bunch_mark);
+			back_move(pos, stack, &b, bunch_mark);
 		size--;
 	}
 	if (size == 3)
 	{
-		three_elements(&a, bunch_mark);
-		pa(&a, &b, bunch_mark);
-		pa(&a, &b, bunch_mark);
+		three_elements(stack, bunch_mark, disorder);
+		pa(stack, &b, bunch_mark);
+		pa(stack, &b, bunch_mark);
 	}
-	stack = &a;
 }

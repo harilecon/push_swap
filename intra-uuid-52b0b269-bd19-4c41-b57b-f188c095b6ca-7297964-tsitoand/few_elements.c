@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:46:50 by haranivo          #+#    #+#             */
-/*   Updated: 2026/04/01 15:01:36 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:23:37 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	heavy_move(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	}
 }
 
-void	three_elements(t_liste **stack, t_bunch **bunch_mark)
+void	three_elements(t_liste **stack, t_bunch **bunch_mark, double disorder)
 {
 	unsigned int		nb0;
 	unsigned int		nb1;
@@ -57,6 +57,8 @@ void	three_elements(t_liste **stack, t_bunch **bunch_mark)
 
 	a = *stack;
 	b = NULL;
+	if (disorder == 0)
+		return ;
 	nb0 = (*stack)->index;
 	nb1 = (*stack)->next->index;
 	nb2 = (*stack)->next->next->index;

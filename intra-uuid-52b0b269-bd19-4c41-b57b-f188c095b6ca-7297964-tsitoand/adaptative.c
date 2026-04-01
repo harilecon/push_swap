@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 05:54:41 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/01 15:00:24 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:29:56 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,18 @@ double	compute_disorder(t_liste *stack)
 
 static void	less_than_five(int size, t_liste **stack, t_bunch **bunch_mark)
 {
+	double	disorder;
+
+	disorder = compute_disorder(*stack);
 	if (size == 2)
 		two_elements(stack, bunch_mark);
 	else if (size == 3)
 	{
-		three_elements(stack, bunch_mark);
+		three_elements(stack, bunch_mark, disorder);
 		return ;
 	}
 	else if (size == 5)
-		five_elements(stack, bunch_mark);
+		five_elements(stack, bunch_mark, disorder);
 }
 
 void	choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark)
