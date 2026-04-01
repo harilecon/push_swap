@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:58:23 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:05:19 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 14:42:10 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	rr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 void	rra(t_liste **a, t_bunch **bunch_mark)
 {
 	t_liste	*last;
-	t_liste	*b_last;
+	t_liste	*a_last;
 
 	ft_printf("rra\n");
 	(*bunch_mark)->rra++;
@@ -70,8 +70,8 @@ void	rra(t_liste **a, t_bunch **bunch_mark)
 	last = *a;
 	while (last->next)
 		last = last->next;
-	b_last = last->previous;
-	b_last->next = NULL;
+	a_last = last->previous;
+	a_last->next = NULL;
 	last->next = *a;
 	last->previous = NULL;
 	(*a)->previous = last;

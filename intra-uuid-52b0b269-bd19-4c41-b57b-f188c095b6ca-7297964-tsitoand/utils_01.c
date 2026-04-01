@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:45:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:15:41 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 14:42:00 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_liste	*create_liste(int i)
 		return (NULL);
 	node->value = i;
 	node->next = NULL;
+	node->previous = NULL;
 	return (node);
 }
 

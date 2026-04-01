@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:15:37 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 14:54:17 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	add_back(t_liste **lst, t_liste *new_value)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new_value;
+	new_value->previous = tmp;
 	new_value->next = NULL;
 }
 

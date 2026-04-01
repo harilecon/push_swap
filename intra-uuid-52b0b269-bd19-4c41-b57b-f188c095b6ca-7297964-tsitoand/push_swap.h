@@ -6,11 +6,11 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:26:48 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 09:17:52 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#if !defined(PUSH_SWAP_H)
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
@@ -54,19 +54,14 @@ char			**table_check_min_max(char **str);
 char			**check_space_null(int argc, char **argv);
 void			get_flag(char **str, t_liste **stack, t_bunch **bunch_mark);
 double			compute_disorder(t_liste *stack);
-int				greatest(t_liste	*stack);
 int				char_to_int(char *str);
 t_argument		*struct_argument(char **str);
 t_liste			*create_liste(int i);
-int				check_order(t_liste *stack);
 int				high_index(t_liste	*liste);
-int				power(long nb);
 int				ft_strcmp(char *s1, char *s2);
 int				check_doublon(char **table);
 unsigned int	low_index(t_liste *liste);
-unsigned int	max_bits(t_liste *stack);
 unsigned int	stack_size(t_liste	*liste);
-void			two_element(t_liste	**stack, t_bunch **bunch_mark);
 void			sa(t_liste **a, t_bunch **bunch_mark);
 void			sb(t_liste **b, t_bunch **bunch_mark);
 void			ss(t_liste **a, t_liste **b, t_bunch **bunch_mark);
@@ -82,12 +77,14 @@ void			free_stack(t_liste	**stack);
 void			free_argument(t_argument **argument);
 void			add_back(t_liste **lst, t_liste *new_value);
 void			insertion(t_liste **stack, t_bunch **bunch_mark);
-void			bubble(t_liste	**stac, t_bunch **bunch_mark);
 void			indexation(t_liste **stack);
 void			radix(t_liste **stack, t_bunch **bunch_mark);
 void			range(t_liste **stack, t_bunch **bunch_mark);
 void			bunch(double disorder, t_bunch	*bunch_mark);
+void			three_elements(t_liste **stack, t_bunch **bunch_mark);
+void			two_elements(t_liste **stack, t_bunch **bunch_mark);
+void			five_elements(t_liste **stack, t_bunch **bunch_mark);
 void			initialisation_bunch_value(t_bunch **bunch_mark);
 void			choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark);
 
-#endif // PUSH_SWAP_H
+#endif

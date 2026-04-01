@@ -6,27 +6,11 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:57:19 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 13:42:27 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	greatest(t_liste	*stack)
-{
-	int	value;
-
-	value = stack->value;
-	while (stack)
-	{
-		if (stack->value > value)
-		{
-			value = stack->value;
-		}
-		stack = stack->next;
-	}
-	return (value);
-}
 
 int	chunck_size(t_liste **stack)
 {
@@ -91,7 +75,6 @@ void	range(t_liste	**stack, t_bunch **bunch_mark)
 	disorder = compute_disorder(*stack);
 	if (disorder == 0)
 		return ;
-	indexation(stack);
 	a = *stack;
 	b = NULL;
 	if (a)

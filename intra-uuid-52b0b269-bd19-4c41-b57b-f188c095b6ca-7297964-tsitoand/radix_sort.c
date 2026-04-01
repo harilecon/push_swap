@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:30:08 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 13:42:23 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	indexation(t_liste	**stack)
 	}
 }
 
-unsigned int	max_bits(t_liste *stack)
+static unsigned int	max_bits(t_liste *stack)
 {
 	unsigned int	bits;
 	unsigned int	max;
@@ -57,19 +57,6 @@ unsigned int	max_bits(t_liste *stack)
 	while ((bits < 32) && ((max >> bits) != 0))
 		bits++;
 	return (bits);
-}
-
-int	check_order(t_liste *stack)
-{
-	if (!stack)
-		return (0);
-	while (stack->next)
-	{
-		if (stack->index > stack->next->index)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
 }
 
 static void	first(t_liste **a, t_liste **b, int j, t_bunch **bunch_mark)
@@ -99,7 +86,6 @@ void	radix(t_liste **stack, t_bunch **bunch_mark)
 	if (compute_disorder(*stack) == 0)
 		return ;
 	(*bunch_mark)->complexity = "O(nlog(n))";
-	indexation(stack);
 	a = *stack;
 	b = NULL;
 	bits = max_bits(a);

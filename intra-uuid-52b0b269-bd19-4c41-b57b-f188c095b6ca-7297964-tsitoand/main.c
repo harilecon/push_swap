@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:08:24 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/01 13:36:21 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	stack_creation(my_argument->number, &stack);
+	indexation(&stack);
 	initialisation_bunch_value(&bunch_mark);
 	get_flag(my_argument->argument, &stack, &bunch_mark);
 	mother_free(&stack, bunch_mark, &my_argument);

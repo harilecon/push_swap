@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+         #
+#    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/03/30 21:23:17 by haranivo         ###   ########.fr        #
+#    Updated: 2026/04/01 15:01:13 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,21 +47,22 @@ SRC = ft_printf_address.c\
 		ft_printf_long_hexlow_error.c\
 		print_double_error.c\
 		ft_printf_string_error.c\
-		doublon.c\
+		double.c\
 		min_max.c\
-		check_null_space.c
+		check_null_space.c\
+		few_elements.c\
+		five_elements.c
 
 
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) libft
-	$(CC) $(CFLAGS) $(OBJ) libft.a -o $(NAME)
+$(NAME) : $(OBJ) libft/libft.a
+	$(CC) $(CFLAGS) $(OBJ) libft/libft.a -o $(NAME)
 
-libft :
+libft/libft.a:
 	make -C libft all
-	mv libft/libft.a .
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -72,7 +73,6 @@ clean :
 
 fclean : clean
 	make -C libft fclean
-	rm -rf libft.a
 	rm -rf $(NAME)
 
 re : fclean $(NAME)
