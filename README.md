@@ -9,7 +9,7 @@ The main goal is to sort the numbers with the least number of moves, testing bot
 
 Key features:
 - Adaptive algorithm selection based on input disorder (inversion ratio).
-- Multiple sorting strategies: insertion (O(n²)), range (O(n√n)), radix (O(n log n)).
+- Multiple sorting strategies: insertion (O(n²)), chunck (O(n√n)), radix (O(n log n)).
 - Custom libft and ft_printf libraries.
 - Benchmarking with `--bench` flag (disorder %, ops counts).
 - Hardcoded optima for small inputs (2, 3 and 5 elements).
@@ -48,7 +48,7 @@ make
 ./push_swap   [integers...] [optinal flags] [integers...]
 ```
 
-- **Integers**: Space-separated, any order/range.
+- **Integers**: Space-separated, any order/chunck.
 - Outputs sequence of operations to stdout; sorts stack A if valid.
 
 **Examples**:
@@ -63,7 +63,7 @@ pa
 | Flag | Effect |
 |------|--------|
 | `--simple` | Insertion sort |
-| `--medium` | Range/chunk sort |
+| `--medium` | chunck/chunk sort |
 | `--complex` | Radix sort |
 | `--adaptive` | Auto-select by disorder (default) |
 | `--bench` | Print stats post-sort |
@@ -81,7 +81,7 @@ We implemented multiple algorithms, selected adaptively via \`compute_disorder\`
 |-----------|---------|------------|-------------------------|
 | 2/3/5 elements | size≤5 | O(1) | Exhaustive optimal sequences. Manual sort. |
 | Insertion | disorder <20% \| --simple | O(n²) | Rotate/push smallest to B, pa back. Efficient for nearly-sorted data. |
-| Range | 20-50% \| --medium | O(n√n) | Divide into chunks (n/10 or n/30), pb ≤chunk via ra, pa max via rb/rrb. Balances rotations/pushes for medium disorder. |
+| chunck | 20-50% \| --medium | O(n√n) | Divide into chunks (n/10 or n/30), pb ≤chunk via ra, pa max via rb/rrb. Balances rotations/pushes for medium disorder. |
 | Radix | >50% \| --complex | O(n log n) | Index ranks, per bit (max_bits): pb if LSB=0 else ra; pa back. Stable, optimal for random/worst-case. |
 
 **Adaptive (--adaptive/default)**: Thresholds ensure optimal complexity by adapting how the system behaves based on the input profile. It defines limits that help choose the most efficient approach, avoid unnecessary computation, and maintain good performance.
@@ -89,7 +89,7 @@ We implemented multiple algorithms, selected adaptively via \`compute_disorder\`
 All use doubly-linked lists, exact ops only, move counters for benchmarking.
 
 ## Resources
-- **Visualizer**: 
+- **Visualizer**:
     - [YouTube tutorial](https://www.youtube.com/watch?v=wRvipSG4Mmk&t=1435s).
     - [Push swap visualizer](https://push-swap42-visualizer.vercel.app/) (website)
 - **Slack**: *_cc_pushswap*
@@ -103,8 +103,8 @@ All use doubly-linked lists, exact ops only, move counters for benchmarking.
 **Checkers**: External validators score moves efficiency.
 
 ---
-**Author**: tsitoand & haranivo  
+**Author**: tsitoand & haranivo
 <center>
     Thanks for reading ME <3 <br>
     <b>2026-04-01</b>
-</center>  
+</center>

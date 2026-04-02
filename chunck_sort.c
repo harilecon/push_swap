@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 17:25:39 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:19:56 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	for_b(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	}
 }
 
-void	range(t_liste	**stack, t_bunch **bunch_mark)
+void	chunck(t_liste	**stack, t_bunch **bunch_mark)
 {
 	t_liste			*a;
 	t_liste			*b;

@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:06:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 18:09:31 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:41:11 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	bunch(double disorder, t_bunch *bunch_mark)
 	ft_printf_fd(fd, "[bench]		sa: %d	sb: %d	ss: %d	pa: %d	pb: %d\n",
 		bunch_mark->sa, bunch_mark->sb, bunch_mark->ss,
 		bunch_mark->pa, bunch_mark->pb);
-	ft_printf_fd(fd, "[bench]\t\tra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+	ft_printf_fd(fd, "[bench]\t\tra: %d rb: %d \
+rr: %d rra: %d rrb: %d rrr: %d\n",
 		bunch_mark->ra,
 		bunch_mark->rb, bunch_mark->rr,
 		bunch_mark->rra, bunch_mark->rrb,

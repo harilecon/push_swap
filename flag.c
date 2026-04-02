@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 12:56:59 by haranivo          #+#    #+#             */
-/*   Updated: 2026/04/02 18:21:29 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:36:00 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	algo_call(char *str, t_liste **stack, t_bunch **bunch_mark)
 	if (ft_strcmp(str, "simple") == 0)
 		insertion(stack, bunch_mark);
 	else if (ft_strcmp(str, "medium") == 0)
-		range(stack, bunch_mark);
+		chunck(stack, bunch_mark);
 	else if (ft_strcmp(str, "complex") == 0)
 		radix(stack, bunch_mark);
 	else if (ft_strcmp(str, "adaptive") == 0)
@@ -65,7 +65,7 @@ static void	one_noflag(int i, char **str, t_liste **stack, t_bunch **bunch_mark)
 		}
 		else
 		{
-			ft_printf_fd(1,"Error\n");
+			ft_printf_fd(1, "Error\n");
 		}
 	}
 	return ;
