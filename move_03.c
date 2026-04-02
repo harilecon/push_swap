@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:58:23 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/01 14:42:10 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:18:45 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rb(t_liste **b, t_bunch **bunch_mark)
 	t_liste	*last;
 	t_liste	*first;
 
-	ft_printf("rb\n");
+	ft_printf_fd(1, "rb\n");
 	(*bunch_mark)->rb++;
 	if (!b || !*b || !(*b)->next)
 		return ;
@@ -52,7 +52,7 @@ void	rb(t_liste **b, t_bunch **bunch_mark)
 
 void	rr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
-	ft_printf("rr\n");
+	ft_printf_fd(1, "rr\n");
 	(*bunch_mark)->rr++;
 	rf(a);
 	rf(b);
@@ -63,7 +63,7 @@ void	rra(t_liste **a, t_bunch **bunch_mark)
 	t_liste	*last;
 	t_liste	*a_last;
 
-	ft_printf("rra\n");
+	ft_printf_fd(1, "rra\n");
 	(*bunch_mark)->rra++;
 	if (!a || !*a || !(*a)->next)
 		return ;
@@ -83,7 +83,7 @@ void	ra(t_liste **a, t_bunch **bunch_mark)
 	t_liste	*last;
 	t_liste	*first;
 
-	ft_printf("ra\n");
+	ft_printf_fd(1, "ra\n");
 	(*bunch_mark)->ra++;
 	if ((!a) || (!*a) || (!(*a)->next))
 		return ;

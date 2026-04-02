@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:16:47 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:34:35 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,28 @@
 
 static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
-	int		index_low;
-	int		i;
+	unsigned int		index_low;
+	unsigned int		i;
 
 	while (*a)
 	{
 		index_low = low_index(*a);
 		i = 0;
-		while (i < index_low - 1)
+		if (index_low <=stack_size(*a) / 2)
 		{
-			ra(a, bunch_mark);
-			i++;
+			while (i < index_low - 1)
+			{
+				ra(a, bunch_mark);
+				i++;
+			}
+		}
+		else
+		{
+			while (stack_size(*a) - index_low + 1)
+			{
+				rra(a, bunch_mark);
+				index_low++;
+			}
 		}
 		pb(a, b, bunch_mark);
 	}

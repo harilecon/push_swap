@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_string_error.c                           :+:      :+:    :+:   */
+/*   ft_printf_int_unsigned_nb_fd.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 07:25:10 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:28:51 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/02/12 07:20:38 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/04/02 18:01:26 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_error.h"
+#include "ft_printf_fd.h"
 
-int	ft_printf_string_error(const char *s)
+static int	count(long nbr)
 {
-	size_t	i;
+	int	i;
 
-	if (!s)
-	{
-		write(2, "(null)", 6);
-		return (6);
-	}
 	i = 0;
-	while (s[i])
+	while (nbr)
 	{
-		write(2, &s[i], 1);
 		i++;
+		nbr = nbr / 10;
 	}
 	return (i);
+}
+
+static void	nbr_print(long nb)
+{
+	if (nb != 0)
+	{
+		nbr_print(nb / 10);
+		write(2, &"0123456789"[nb % 10], 1);
+	}
+}
+
+int	ft_printf_unsigned_int_nb_fd(int fd, unsigned int n)
+{
+	unsigned long	nb;
+
+	nb = n;
+	if (n == 0)
+	{
+		write(fd, "0", 1);
+		return (1);
+	}
+	nbr_print(nb);
+	return (count(nb));
 }

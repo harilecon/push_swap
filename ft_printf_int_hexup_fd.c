@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_double_error.c                               :+:      :+:    :+:   */
+/*   ft_printf_int_hexup_fd.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/26 11:50:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 14:31:57 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/02/12 07:58:48 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/04/02 17:58:46 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf_fd.h"
 
-void	ft_printf_double(double nb, int presition)
+static int	count(long nbr)
 {
-	int	nb_int;
-	int	power;
 	int	i;
 
-	power = 1;
 	i = 0;
-	while (i < presition)
+	while (nbr)
 	{
-		power = power * 10;
 		i++;
+		nbr = nbr / 16;
 	}
-	nb_int = (int)nb;
-	ft_printf_int_nb_error(nb_int);
-	ft_printf_char_error('.');
-	nb = nb - nb_int;
-	nb_int = (int)(nb * power);
-	ft_printf_int_nb_error(nb_int);
+	return (i);
+}
+
+static void	hexup(unsigned int nb)
+{
+	if (nb)
+	{
+		hexup(nb / 16);
+		write(2, &"0123456789ABCDEF"[nb % 16], 1);
+	}
+}
+
+int	ft_printf_int_hexup_fd(int fd, unsigned int nb)
+{
+	if (nb == 0)
+	{
+		write (fd, "0", 1);
+		return (1);
+	}
+	hexup(nb);
+	return (count (nb));
 }

@@ -1,49 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int_unsigned_nb_error.c                  :+:      :+:    :+:   */
+/*   print_double_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 07:20:38 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:29:35 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/03/26 11:50:55 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/04/02 17:52:00 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_error.h"
+#include "push_swap.h"
 
-static int	count(long nbr)
+void	ft_printf_double(int fd, double nb, int presition)
 {
+	int	nb_int;
+	int	power;
 	int	i;
 
+	power = 1;
 	i = 0;
-	while (nbr)
+	while (i < presition)
 	{
+		power = power * 10;
 		i++;
-		nbr = nbr / 10;
 	}
-	return (i);
-}
-
-static void	nbr_print(long nb)
-{
-	if (nb != 0)
-	{
-		nbr_print(nb / 10);
-		write(2, &"0123456789"[nb % 10], 1);
-	}
-}
-
-int	ft_printf_unsigned_int_nb_error(unsigned int n)
-{
-	unsigned long	nb;
-
-	nb = n;
-	if (n == 0)
-	{
-		write(2, "0", 1);
-		return (1);
-	}
-	nbr_print(nb);
-	return (count(nb));
+	nb_int = (int)nb;
+	ft_printf_int_nb_fd(fd, nb_int);
+	ft_printf_char_fd(fd, '.');
+	nb = nb - nb_int;
+	nb_int = (int)(nb * power);
+	ft_printf_int_nb_fd(fd, nb_int);
 }

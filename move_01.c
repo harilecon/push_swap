@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:28:36 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 14:29:44 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:17:10 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sa(t_liste **a, t_bunch **bunch_mark)
 	t_liste	*second;
 
 	(*bunch_mark)->sa++;
-	ft_printf("sa\n");
+	ft_printf_fd(1, "sa\n");
 	if (!a || !(*a) || !(*a)->next)
 		return ;
 	first = *a;
@@ -55,7 +55,7 @@ void	sb(t_liste **b, t_bunch **bunch_mark)
 	t_liste	*first;
 	t_liste	*second;
 
-	ft_printf("sb\n");
+	ft_printf_fd(1, "sb\n");
 	(*bunch_mark)->sb++;
 	if (!b || !(*b) || !(*b)->next)
 		return ;
@@ -72,7 +72,7 @@ void	sb(t_liste **b, t_bunch **bunch_mark)
 
 void	ss(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
-	ft_printf("ss\n");
+	ft_printf_fd(1, "ss\n");
 	(*bunch_mark)->ss++;
 	ss_f(a);
 	ss_f(b);

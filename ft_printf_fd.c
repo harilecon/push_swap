@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_error.c                                  :+:      :+:    :+:   */
+/*   ft_printf_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 12:38:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 12:54:32 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:53:29 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_error.h"
+#include "ft_printf_fd.h"
 
 static int	if_statement(const char *s, int i, int j)
 {
@@ -67,35 +67,35 @@ static int	test_char(char c)
 	return (0);
 }
 
-static int	condition(const char *s, int i, va_list args)
+static int	condition(int fd, const char *s, int i, va_list args)
 {
 	if (s[i] != '%')
-		return (ft_printf_char_error(s[i]));
+		return (ft_printf_char_fd(fd, s[i]));
 	else if (((s[i + 1] == 'd')) || (s[i + 1] == 'i'))
-		return (ft_printf_int_nb_error(va_arg(args, int)));
+		return (ft_printf_int_nb_fd(fd, va_arg(args, int)));
 	else if (s[i + 1] == 'x')
-		return (ft_printf_int_hexlow_error(va_arg(args, unsigned int)));
+		return (ft_printf_int_hexlow_fd(fd, va_arg(args, unsigned int)));
 	else if (s[i + 1] == 'X')
-		return (ft_printf_int_hexup_error(va_arg(args, unsigned int)));
+		return (ft_printf_int_hexup_fd(fd, va_arg(args, unsigned int)));
 	else if (s[i + 1] == 'u')
-		return (ft_printf_unsigned_int_nb_error(va_arg(args, unsigned int)));
+		return (ft_printf_unsigned_int_nb_fd(fd, va_arg(args, unsigned int)));
 	else if (s[i + 1] == 'p')
-		return (ft_printf_address_error(va_arg(args, void *)));
+		return (ft_printf_address_fd(fd, va_arg(args, void *)));
 	else if (s[i + 1] == 's')
-		return (ft_printf_string_error(va_arg(args, char *)));
+		return (ft_printf_string_fd(fd, va_arg(args, char *)));
 	else if (s[i + 1] == 'c')
-		return (ft_printf_char_error(va_arg(args, int)));
+		return (ft_printf_char_fd(fd, va_arg(args, int)));
 	else if (s[i + 1] == 'f')
 	{
-		ft_printf_double(va_arg(args, double), 2);
+		ft_printf_double(fd, va_arg(args, double), 2);
 		return (0);
 	}
 	else if (s[i + 1] == '%')
-		return (ft_printf_char_error('%'));
+		return (ft_printf_char_fd(fd, '%'));
 	return (0);
 }
 
-int	ft_printf_error(const char *s, ...)
+int	ft_printf_fd(int fd, const char *s, ...)
 {
 	int		i;
 	int		len;
@@ -110,7 +110,7 @@ int	ft_printf_error(const char *s, ...)
 	va_start(args, s);
 	while (s[i])
 	{
-		len = len + condition (s, i, args);
+		len = len + condition (fd, s, i, args);
 		if ((s[i] == '%') && test_char(s[i + 1]))
 			i++;
 		i++;

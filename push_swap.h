@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/01 18:32:10 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:12:04 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include "ft_printf.h"
-# include "ft_printf_error.h"
+# include "ft_printf_fd.h"
 # include "libft/libft.h"
 
 typedef struct s_liste

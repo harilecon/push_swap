@@ -1,46 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int_hexlow_error.c                       :+:      :+:    :+:   */
+/*   ft_printf_char_fd.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 08:30:27 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 11:30:12 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/02/12 08:59:42 by tsitoand          #+#    #+#             */
+/*   Updated: 2026/04/02 17:45:58 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_error.h"
+#include "ft_printf_fd.h"
 
-static int	count(long nbr)
+int	ft_printf_char_fd(int fd, char c)
 {
-	int	i;
-
-	i = 0;
-	while (nbr)
-	{
-		i++;
-		nbr = nbr / 16;
-	}
-	return (i);
-}
-
-static void	hexlow(unsigned int nb)
-{
-	if (nb)
-	{
-		hexlow(nb / 16);
-		write(2, &"0123456789abcdef"[nb % 16], 1);
-	}
-}
-
-int	ft_printf_int_hexlow_error(unsigned int nb)
-{
-	if (nb == 0)
-	{
-		write (2, "0", 1);
-		return (1);
-	}
-	hexlow(nb);
-	return (count(nb));
+	write(fd, &c, 1);
+	return (1);
 }

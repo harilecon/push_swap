@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:06:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/30 20:25:39 by haranivo         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:09:31 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,20 @@ void	initialisation_bunch_value(t_bunch **bunch_mark)
 void	bunch(double disorder, t_bunch *bunch_mark)
 {
 	int	total;
+	int	fd;
 
+	fd = 2;
 	total = bunch_mark->sa + bunch_mark->sb + bunch_mark->ss + bunch_mark->pa
 		+ bunch_mark->pb + bunch_mark->ra + bunch_mark->rb + bunch_mark->rr
 		+ bunch_mark->rra + bunch_mark->rrb + bunch_mark->rrr;
-	ft_printf_error("[bench]		disorder: %f%%\n", disorder * 100);
-	ft_printf_error("[bench]		strategy: %s / %s\n", bunch_mark->strategy,
+	ft_printf_fd(fd, "[bench]		disorder: %f%%\n", disorder * 100);
+	ft_printf_fd(fd, "[bench]		strategy: %s / %s\n", bunch_mark->strategy,
 		bunch_mark->complexity);
-	ft_printf_error("[bench]		total_ops: %d\n", total);
-	ft_printf_error("[bench]		sa: %d	sb: %d	ss: %d	pa: %d	pb: %d\n",
+	ft_printf_fd(fd, "[bench]		total_ops: %d\n", total);
+	ft_printf_fd(fd, "[bench]		sa: %d	sb: %d	ss: %d	pa: %d	pb: %d\n",
 		bunch_mark->sa, bunch_mark->sb, bunch_mark->ss,
 		bunch_mark->pa, bunch_mark->pb);
-	ft_printf_error("[bench]\t\tra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+	ft_printf_fd(fd, "[bench]\t\tra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
 		bunch_mark->ra,
 		bunch_mark->rb, bunch_mark->rr,
 		bunch_mark->rra, bunch_mark->rrb,

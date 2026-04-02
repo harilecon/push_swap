@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 12:56:59 by haranivo          #+#    #+#             */
-/*   Updated: 2026/03/31 19:00:16 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 18:21:29 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	algo_call(char *str, t_liste **stack, t_bunch **bunch_mark)
 	else if (ft_strcmp(str, "adaptive") == 0)
 		choose_your_destiny(stack, bunch_mark);
 	else
-		ft_printf("Error\n");
+		ft_printf_fd(1, "Error\n");
 	return ;
 }
 
@@ -65,7 +65,7 @@ static void	one_noflag(int i, char **str, t_liste **stack, t_bunch **bunch_mark)
 		}
 		else
 		{
-			ft_printf ("Error\n");
+			ft_printf_fd(1,"Error\n");
 		}
 	}
 	return ;
@@ -93,7 +93,7 @@ static void	multi_flag(char **str, t_liste **stack, t_bunch **bunch_mark)
 		return ;
 	}
 	else
-		ft_printf("Error\n");
+		ft_printf_fd(1, "Error\n");
 	return ;
 }
 
@@ -114,6 +114,6 @@ void	get_flag(char **str, t_liste **stack, t_bunch **bunch_mark)
 		multi_flag(str, stack, bunch_mark);
 	}
 	else if (i > 2)
-		ft_printf("Error\n");
+		ft_printf_fd(1, "Error\n");
 	return ;
 }
