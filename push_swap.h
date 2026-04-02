@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:30:55 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 18:12:04 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:20:14 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void			add_back(t_liste **lst, t_liste *new_value);
 void			insertion(t_liste **stack, t_bunch **bunch_mark);
 void			indexation(t_liste **stack);
 void			radix(t_liste **stack, t_bunch **bunch_mark);
-void			range(t_liste **stack, t_bunch **bunch_mark);
+void			chunck(t_liste **stack, t_bunch **bunch_mark);
 void			bunch(double disorder, t_bunch	*bunch_mark);
 void			three_elements(t_liste **stack,
 					t_bunch **bunch_mark, double disorder);

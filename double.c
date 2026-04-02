@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doublon.c                                          :+:      :+:    :+:   */
+/*   double.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 12:55:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 08:06:17 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 19:51:05 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	condition_pos(char **number, int i, int j)
 	return (0);
 }
 
-int	check_doublon_pos(char **number)
+static int	check_doublon_pos(char **number)
 {
 	int		i;
 	int		j;
@@ -79,7 +79,7 @@ int	check_doublon_pos(char **number)
 	return (0);
 }
 
-int	check_doublon_neg(char **number)
+static int	check_doublon_neg(char **number)
 {
 	int		i;
 	int		j;
@@ -103,7 +103,7 @@ int	check_doublon_neg(char **number)
 
 int	check_doublon(char **number)
 {
-	if (check_doublon_neg(number) || check_doublon_pos(number))
+	if (check_doublon_neg(number) == 1 || check_doublon_pos(number) == 1)
 		return (1);
 	return (0);
 }

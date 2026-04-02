@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 07:41:46 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:38:40 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 19:55:55 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ char	**table_check_min_max(char **str)
 	while (str[i])
 	{
 		if (!min_max(str[i]))
-			return (NULL);
+			return (str);
 		i++;
 	}
-	return (str);
+	return (NULL);
 }

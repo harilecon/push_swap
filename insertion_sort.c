@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 17:34:35 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:47:02 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	{
 		index_low = low_index(*a);
 		i = 0;
-		if (index_low <=stack_size(*a) / 2)
+		if (index_low <= stack_size(*a) / 2)
 		{
 			while (i < index_low - 1)
 			{
@@ -48,9 +48,9 @@ void	insertion(t_liste **stack, t_bunch **bunch_mark)
 	double	disorder;
 
 	disorder = compute_disorder(*stack);
+	(*bunch_mark)->complexity = "O(n^2)";
 	if (disorder == 0)
 		return ;
-	(*bunch_mark)->complexity = "O(n^2)";
 	b = NULL;
 	a = *stack;
 	if (a)

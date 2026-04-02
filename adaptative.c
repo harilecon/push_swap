@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 05:54:41 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/01 18:29:56 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:46:02 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,27 @@ static void	less_than_five(int size, t_liste **stack, t_bunch **bunch_mark)
 		five_elements(stack, bunch_mark, disorder);
 }
 
+static void	condition(double disorder, t_liste **stack, t_bunch **bunch_mark)
+{
+	if (disorder < 0.2)
+		insertion(stack, bunch_mark);
+	else if ((0.2 <= disorder) && (disorder < 0.5))
+		chunck(stack, bunch_mark);
+	else
+		radix(stack, bunch_mark);
+}
+
 void	choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark)
 {
 	double			disorder;
 	unsigned int	size;
 
 	(*bunch_mark)->strategy = "adaptive";
+	if (!stack[0])
+	{
+		(*bunch_mark)->complexity = "none";
+		return ;
+	}
 	size = stack_size(*stack);
 	disorder = compute_disorder(*stack);
 	if (disorder < 0.2)
@@ -71,11 +86,6 @@ void	choose_your_destiny(t_liste	**stack, t_bunch **bunch_mark)
 		less_than_five(size, stack, bunch_mark);
 	else
 	{
-		if (disorder < 0.2)
-			insertion(stack, bunch_mark);
-		else if ((0.2 <= disorder) && (disorder < 0.5))
-			range(stack, bunch_mark);
-		else
-			radix(stack, bunch_mark);
+		condition(disorder, stack, bunch_mark);
 	}
 }
