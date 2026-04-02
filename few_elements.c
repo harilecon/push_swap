@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:46:50 by haranivo          #+#    #+#             */
-/*   Updated: 2026/04/01 18:23:37 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:20:58 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ void	three_elements(t_liste **stack, t_bunch **bunch_mark, double disorder)
 	}
 	else
 		heavy_move(&a, &b, bunch_mark);
+	*stack = a;
 }
