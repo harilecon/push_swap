@@ -6,12 +6,12 @@
 #    By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 07:20:51 by tsitoand          #+#    #+#              #
-#    Updated: 2026/04/02 18:14:01 by tsitoand         ###   ########.fr        #
+#    Updated: 2026/04/03 08:02:30 by tsitoand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 SRC = 	insertion_sort.c\
 		move_01.c\

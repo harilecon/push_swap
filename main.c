@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:47:50 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 20:34:14 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 08:17:50 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 	stack = NULL;
 	bunch_mark = malloc(sizeof(t_bunch));
 	if (!check_space_null(argc, argv))
-		return (ft_printf_fd(1, "fd\n"));
+		return (ft_printf_fd(1, "Error\n"));
 	my_argument = struct_argument(argument_table(argc, argv));
 	if (check_doublon(my_argument->number)
 		|| table_check_min_max(my_argument->number))
