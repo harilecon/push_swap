@@ -6,7 +6,7 @@
 /*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 21:13:04 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 04:31:52 by tsitoand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,85 @@ int	chunck_size(t_liste **stack)
 	if (size < 10)
 		return (1);
 	if (size >= 10 && size <= 100)
-		return (size / 10);
+		return (size / 20);
 	return (size / 30);
 }
+static unsigned int up_search(t_liste **chunck, unsigned int max)
+{
+	unsigned int	i;
+	t_liste			*tmp;
+
+	tmp = *chunck;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->index < max)
+		return i;
+			tmp = tmp->next;
+		i++;
+	}
+	return (i);
+}
+
+static unsigned int down_search(t_liste **chunck, unsigned int max)
+{
+	unsigned int	i;
+	t_liste			*tmp;
+
+	tmp = *chunck;
+	i = 1;
+	while (tmp->next)
+		tmp = tmp->next;
+
+	while (tmp)
+	{
+		if (tmp->index < max)
+		return i;
+			tmp = tmp->previous;
+		i++;
+	}
+	return (i);
+}
+
+
 
 static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 {
 	unsigned int	i;
 	unsigned int	chunck;
+	unsigned int	up;
+	unsigned int	down;
+	unsigned int	k;
 
 	chunck = chunck_size(a);
+
 	i = 0;
 	while (*a)
 	{
+		k = 0;
+		up = up_search(a, (unsigned int)(i + 1) * chunck);
+		down = down_search(a, (unsigned int)(i + 1) * chunck);
 		if ((*a)->index <= (i + 1) * chunck)
 			pb(a, b, bunch_mark);
 		else
-			ra(a, bunch_mark);
+		{
+			if (up <= down)
+			{
+				while (k < up)
+				{
+					ra(a, bunch_mark);
+					k++;
+				}
+			}
+			else if (up > down)
+			{
+				while (k < down)
+				{
+					rra(a, bunch_mark);
+					k++;
+				}
+			}
+		}
 		if (stack_size(*b) >= (i + 1) * chunck)
 			i++;
 	}
