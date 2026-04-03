@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 09:51:17 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 20:47:02 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:33:43 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+static void	for_a(t_data **a, t_data **b, t_bench **bench_mark)
 {
-	unsigned int		index_low;
-	unsigned int		i;
+	unsigned int	index_low;
+	unsigned int	i;
 
 	while (*a)
 	{
@@ -25,7 +25,7 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 		{
 			while (i < index_low - 1)
 			{
-				ra(a, bunch_mark);
+				ra(a, bench_mark);
 				i++;
 			}
 		}
@@ -33,29 +33,29 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 		{
 			while (stack_size(*a) - index_low + 1)
 			{
-				rra(a, bunch_mark);
+				rra(a, bench_mark);
 				index_low++;
 			}
 		}
-		pb(a, b, bunch_mark);
+		pb(a, b, bench_mark);
 	}
 }
 
-void	insertion(t_liste **stack, t_bunch **bunch_mark)
+void	insertion(t_data **stack, t_bench **bench_mark)
 {
-	t_liste	*a;
-	t_liste	*b;
+	t_data	*a;
+	t_data	*b;
 	double	disorder;
 
 	disorder = compute_disorder(*stack);
-	(*bunch_mark)->complexity = "O(n^2)";
+	(*bench_mark)->complexity = "O(n^2)";
 	if (disorder == 0)
 		return ;
 	b = NULL;
 	a = *stack;
 	if (a)
-		for_a(&a, &b, bunch_mark);
+		for_a(&a, &b, bench_mark);
 	while (b)
-		pa(&a, &b, bunch_mark);
+		pa(&a, &b, bench_mark);
 	*stack = a;
 }

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_utils.c                                     :+:      :+:    :+:   */
+/*   utils_03.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:53:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/01 14:54:17 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:36:50 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_back(t_liste **lst, t_liste *new_value)
+void	add_back(t_data **lst, t_data *new_value)
 {
-	t_liste	*tmp;
+	t_data	*tmp;
 
 	if (!lst || !new_value)
 		return ;
@@ -32,7 +32,7 @@ void	add_back(t_liste **lst, t_liste *new_value)
 	new_value->next = NULL;
 }
 
-unsigned int	stack_size(t_liste	*liste)
+unsigned int	stack_size(t_data *liste)
 {
 	unsigned int	i;
 
@@ -45,9 +45,9 @@ unsigned int	stack_size(t_liste	*liste)
 	return (i);
 }
 
-int	high_index(t_liste	*liste)
+int	high_index(t_data *liste)
 {
-	t_liste	*tmp;
+	t_data	*tmp;
 	int		high;
 	int		i;
 
@@ -72,10 +72,10 @@ int	high_index(t_liste	*liste)
 	return (i);
 }
 
-static int	low_value(t_liste *liste)
+static int	low_value(t_data *liste)
 {
-	int			low;
-	t_liste		*tmp;
+	int		low;
+	t_data	*tmp;
 
 	tmp = liste;
 	low = liste->value;
@@ -88,7 +88,7 @@ static int	low_value(t_liste *liste)
 	return (low);
 }
 
-unsigned int	low_index(t_liste *liste)
+unsigned int	low_index(t_data *liste)
 {
 	int	low;
 	int	i;

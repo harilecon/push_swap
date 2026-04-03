@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_01.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:45:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/01 14:42:00 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:36:09 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int	ft_strcmp(char *s1, char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 }
 
-t_liste	*create_liste(int i)
+t_data	*create_liste(int i)
 {
-	t_liste	*node;
+	t_data	*node;
 
-	node = malloc(sizeof(t_liste));
+	node = malloc(sizeof(t_data));
 	if (!node)
 		return (NULL);
 	node->value = i;
@@ -52,9 +52,9 @@ t_liste	*create_liste(int i)
 
 int	char_to_int(char *str)
 {
-	int		signe;
-	int		i;
-	int		nb;
+	int	signe;
+	int	i;
+	int	nb;
 
 	signe = 1;
 	i = 0;

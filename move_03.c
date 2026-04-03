@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   move_03.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:58:23 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 18:18:45 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:34:43 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rf(t_liste **b)
+void	rf(t_data **b)
 {
-	t_liste	*last;
-	t_liste	*first;
+	t_data	*last;
+	t_data	*first;
 
 	if (!b || !*b || !(*b)->next)
 		return ;
@@ -30,13 +30,13 @@ void	rf(t_liste **b)
 	first->next = NULL;
 }
 
-void	rb(t_liste **b, t_bunch **bunch_mark)
+void	rb(t_data **b, t_bench **bench_mark)
 {
-	t_liste	*last;
-	t_liste	*first;
+	t_data	*last;
+	t_data	*first;
 
 	ft_printf_fd(1, "rb\n");
-	(*bunch_mark)->rb++;
+	(*bench_mark)->rb++;
 	if (!b || !*b || !(*b)->next)
 		return ;
 	last = *b;
@@ -50,21 +50,21 @@ void	rb(t_liste **b, t_bunch **bunch_mark)
 	first->next = NULL;
 }
 
-void	rr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+void	rr(t_data **a, t_data **b, t_bench **bench_mark)
 {
 	ft_printf_fd(1, "rr\n");
-	(*bunch_mark)->rr++;
+	(*bench_mark)->rr++;
 	rf(a);
 	rf(b);
 }
 
-void	rra(t_liste **a, t_bunch **bunch_mark)
+void	rra(t_data **a, t_bench **bench_mark)
 {
-	t_liste	*last;
-	t_liste	*a_last;
+	t_data	*last;
+	t_data	*a_last;
 
 	ft_printf_fd(1, "rra\n");
-	(*bunch_mark)->rra++;
+	(*bench_mark)->rra++;
 	if (!a || !*a || !(*a)->next)
 		return ;
 	last = *a;
@@ -78,13 +78,13 @@ void	rra(t_liste **a, t_bunch **bunch_mark)
 	*a = last;
 }
 
-void	ra(t_liste **a, t_bunch **bunch_mark)
+void	ra(t_data **a, t_bench **bench_mark)
 {
-	t_liste	*last;
-	t_liste	*first;
+	t_data	*last;
+	t_data	*first;
 
 	ft_printf_fd(1, "ra\n");
-	(*bunch_mark)->ra++;
+	(*bench_mark)->ra++;
 	if ((!a) || (!*a) || (!(*a)->next))
 		return ;
 	last = *a;

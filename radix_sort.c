@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 22:30:49 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 20:19:40 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:34:57 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	indexation(t_liste	**stack)
+void	indexation(t_data **stack)
 {
 	int		j;
 	int		value;
-	t_liste	*tmp;
-	t_liste	*tmp_02;
+	t_data	*tmp;
+	t_data	*tmp_02;
 
 	j = 0;
 	tmp = *stack;
@@ -37,11 +37,11 @@ void	indexation(t_liste	**stack)
 	}
 }
 
-static unsigned int	max_bits(t_liste *stack)
+static unsigned int	max_bits(t_data *stack)
 {
 	unsigned int	bits;
 	unsigned int	max;
-	t_liste			*tmp;
+	t_data			*tmp;
 
 	if (!stack)
 		return (0);
@@ -59,7 +59,7 @@ static unsigned int	max_bits(t_liste *stack)
 	return (bits);
 }
 
-static void	first(t_liste **a, t_liste **b, int j, t_bunch **bunch_mark)
+static void	first(t_data **a, t_data **b, int j, t_bench **bench_mark)
 {
 	unsigned int	i;
 	unsigned int	size_a;
@@ -69,21 +69,21 @@ static void	first(t_liste **a, t_liste **b, int j, t_bunch **bunch_mark)
 	while (i < size_a)
 	{
 		if ((((*a)->index >> j) & 1) == 0)
-			pb(a, b, bunch_mark);
+			pb(a, b, bench_mark);
 		else
-			ra(a, bunch_mark);
+			ra(a, bench_mark);
 		i++;
 	}
 }
 
-void	radix(t_liste **stack, t_bunch **bunch_mark)
+void	radix(t_data **stack, t_bench **bench_mark)
 {
-	t_liste			*a;
-	t_liste			*b;
-	int				j;
-	int				bits;
+	t_data	*a;
+	t_data	*b;
+	int		j;
+	int		bits;
 
-	(*bunch_mark)->complexity = "O(nlog(n))";
+	(*bench_mark)->complexity = "O(nlog(n))";
 	if (compute_disorder(*stack) == 0)
 		return ;
 	a = *stack;
@@ -94,9 +94,9 @@ void	radix(t_liste **stack, t_bunch **bunch_mark)
 	j = 0;
 	while (j < bits)
 	{
-		first(&a, &b, j, bunch_mark);
+		first(&a, &b, j, bench_mark);
 		while (b)
-			pa(&a, &b, bunch_mark);
+			pa(&a, &b, bench_mark);
 		j++;
 	}
 	*stack = a;

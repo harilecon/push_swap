@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 12:56:59 by haranivo          #+#    #+#             */
-/*   Updated: 2026/04/02 20:36:00 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:30:13 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,91 +29,91 @@ static char	*is_flag(char *str)
 	return (NULL);
 }
 
-static void	algo_call(char *str, t_liste **stack, t_bunch **bunch_mark)
+static void	algo_call(char *str, t_data **stack, t_bench **bench_mark)
 {
 	if (ft_strcmp(str, "simple") == 0)
-		insertion(stack, bunch_mark);
+		insertion(stack, bench_mark);
 	else if (ft_strcmp(str, "medium") == 0)
-		chunck(stack, bunch_mark);
+		chunck(stack, bench_mark);
 	else if (ft_strcmp(str, "complex") == 0)
-		radix(stack, bunch_mark);
+		radix(stack, bench_mark);
 	else if (ft_strcmp(str, "adaptive") == 0)
-		choose_your_destiny(stack, bunch_mark);
+		choose_your_destiny(stack, bench_mark);
 	else
-		ft_printf_fd(1, "Error\n");
+		ft_printf_fd(2, "Error\n");
 	return ;
 }
 
-static void	one_noflag(int i, char **str, t_liste **stack, t_bunch **bunch_mark)
+static void	one_noflag(int i, char **str, t_data **stack, t_bench **bench_mark)
 {
 	double	disorder;
 
 	disorder = compute_disorder(*stack);
 	if (!str)
-		choose_your_destiny(stack, bunch_mark);
+		choose_your_destiny(stack, bench_mark);
 	else if (i == 1)
 	{
 		if (is_flag(str[0]))
 		{
-			(*bunch_mark)->strategy = is_flag(str[0]);
-			algo_call(is_flag(str[0]), stack, bunch_mark);
+			(*bench_mark)->strategy = is_flag(str[0]);
+			algo_call(is_flag(str[0]), stack, bench_mark);
 		}
 		else if (ft_strcmp(str[0], "--bench") == 0)
 		{
-			choose_your_destiny(stack, bunch_mark);
-			bunch(disorder, *bunch_mark);
+			choose_your_destiny(stack, bench_mark);
+			bench(disorder, *bench_mark);
 		}
 		else
 		{
-			ft_printf_fd(1, "Error\n");
+			ft_printf_fd(2, "Error\n");
 		}
 	}
 	return ;
 }
 
-static void	multi_flag(char **str, t_liste **stack, t_bunch **bunch_mark)
+static void	multi_flag(char **str, t_data **stack, t_bench **bench_mark)
 {
 	double	disorder;
 
 	disorder = compute_disorder(*stack);
 	if (!str)
-		choose_your_destiny(stack, bunch_mark);
+		choose_your_destiny(stack, bench_mark);
 	if (ft_strcmp(str[0], "--bench") == 0 && is_flag(str[1]))
 	{
-		(*bunch_mark)->strategy = is_flag(str[1]);
-		algo_call(is_flag(str[1]), stack, bunch_mark);
-		bunch(disorder, *bunch_mark);
+		(*bench_mark)->strategy = is_flag(str[1]);
+		algo_call(is_flag(str[1]), stack, bench_mark);
+		bench(disorder, *bench_mark);
 		return ;
 	}
 	else if (is_flag(str[0]) && ft_strcmp(str[1], "--bench") == 0)
 	{
-		(*bunch_mark)->strategy = is_flag(str[0]);
-		algo_call(is_flag(str[0]), stack, bunch_mark);
-		bunch(disorder, *bunch_mark);
+		(*bench_mark)->strategy = is_flag(str[0]);
+		algo_call(is_flag(str[0]), stack, bench_mark);
+		bench(disorder, *bench_mark);
 		return ;
 	}
 	else
-		ft_printf_fd(1, "Error\n");
+		ft_printf_fd(2, "Error\n");
 	return ;
 }
 
-void	get_flag(char **str, t_liste **stack, t_bunch **bunch_mark)
+void	get_flag(char **str, t_data **stack, t_bench **bench_mark)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (!str)
-		choose_your_destiny(stack, bunch_mark);
+		choose_your_destiny(stack, bench_mark);
 	else
 		while (str[i])
 			i++;
 	if (i == 1)
-		one_noflag(i, str, stack, bunch_mark);
+		one_noflag(i, str, stack, bench_mark);
 	if (i == 2)
 	{
-		multi_flag(str, stack, bunch_mark);
+		multi_flag(str, stack, bench_mark);
 	}
 	else if (i > 2)
-		ft_printf_fd(1, "Error\n");
+		ft_printf_fd(2, "Error\n");
 	return ;
 }

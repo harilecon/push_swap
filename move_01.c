@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   move_01.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:28:36 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 18:17:10 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:34:28 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ss_f(t_liste **a)
+static void	ss_f(t_data **a)
 {
-	t_liste	*first;
-	t_liste	*second;
+	t_data	*first;
+	t_data	*second;
 
 	if (!a || !(*a) || !(*a)->next)
 		return ;
@@ -30,12 +30,12 @@ static void	ss_f(t_liste **a)
 		first->next->previous = first;
 }
 
-void	sa(t_liste **a, t_bunch **bunch_mark)
+void	sa(t_data **a, t_bench **bench_mark)
 {
-	t_liste	*first;
-	t_liste	*second;
+	t_data	*first;
+	t_data	*second;
 
-	(*bunch_mark)->sa++;
+	(*bench_mark)->sa++;
 	ft_printf_fd(1, "sa\n");
 	if (!a || !(*a) || !(*a)->next)
 		return ;
@@ -50,13 +50,13 @@ void	sa(t_liste **a, t_bunch **bunch_mark)
 		first->next->previous = first;
 }
 
-void	sb(t_liste **b, t_bunch **bunch_mark)
+void	sb(t_data **b, t_bench **bench_mark)
 {
-	t_liste	*first;
-	t_liste	*second;
+	t_data	*first;
+	t_data	*second;
 
 	ft_printf_fd(1, "sb\n");
-	(*bunch_mark)->sb++;
+	(*bench_mark)->sb++;
 	if (!b || !(*b) || !(*b)->next)
 		return ;
 	first = *b;
@@ -70,10 +70,10 @@ void	sb(t_liste **b, t_bunch **bunch_mark)
 		first->next->previous = first;
 }
 
-void	ss(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+void	ss(t_data **a, t_data **b, t_bench **bench_mark)
 {
 	ft_printf_fd(1, "ss\n");
-	(*bunch_mark)->ss++;
+	(*bench_mark)->ss++;
 	ss_f(a);
 	ss_f(b);
 }

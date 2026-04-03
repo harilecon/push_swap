@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 09:40:44 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 11:22:23 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:30:18 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_liste	**stack)
+void	free_stack(t_data **stack)
 {
-	t_liste	*tmp;
+	t_data	*tmp;
 
 	while (*stack)
 	{

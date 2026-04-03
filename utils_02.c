@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_02.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 07:32:19 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/26 09:46:00 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:36:12 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

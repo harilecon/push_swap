@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double.c                                           :+:      :+:    :+:   */
+/*   test_double.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 12:55:00 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 19:51:05 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:35:17 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ static int	condition_pos(char **number, int i, int j)
 			if (!ft_strcmp(number[i], number[j] + 1))
 				return (1);
 		}
-		else
-			if (!ft_strcmp(number[i], number[j]))
-				return (1);
+		else if (!ft_strcmp(number[i], number[j]))
+			return (1);
 	}
 	else
 	{
@@ -59,8 +58,8 @@ static int	condition_pos(char **number, int i, int j)
 
 static int	check_doublon_pos(char **number)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	if (!number)
 		return (-1);
@@ -81,8 +80,8 @@ static int	check_doublon_pos(char **number)
 
 static int	check_doublon_neg(char **number)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	if (!number)
 		return (-1);

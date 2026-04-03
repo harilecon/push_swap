@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_int_unsigned_nb.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 07:20:38 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/02/14 12:06:02 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/04/03 12:33:16 by haranivo          #+#    #+#             */
+/*   Updated: 2026/04/03 12:33:19 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

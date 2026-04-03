@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int_unsigned_nb_fd.c                  :+:      :+:    :+:   */
+/*   ft_printf_int_unsigned_nb_fd.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 07:20:38 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 18:01:26 by tsitoand         ###   ########.fr       */
+/*   Created: 2026/04/03 12:33:05 by haranivo          #+#    #+#             */
+/*   Updated: 2026/04/03 12:33:07 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

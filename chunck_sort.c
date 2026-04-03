@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   chunck_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 13:17:35 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 21:13:04 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:29:34 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	chunck_size(t_liste **stack)
+static int	chunck_size(t_data **stack)
 {
 	int	size;
 
@@ -24,7 +24,7 @@ int	chunck_size(t_liste **stack)
 	return (size / 30);
 }
 
-static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+static void	for_a(t_data **a, t_data **b, t_bench **bench_mark)
 {
 	unsigned int	i;
 	unsigned int	chunck;
@@ -34,15 +34,15 @@ static void	for_a(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	while (*a)
 	{
 		if ((*a)->index <= (i + 1) * chunck)
-			pb(a, b, bunch_mark);
+			pb(a, b, bench_mark);
 		else
-			ra(a, bunch_mark);
+			ra(a, bench_mark);
 		if (stack_size(*b) >= (i + 1) * chunck)
 			i++;
 	}
 }
 
-static void	for_b(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+static void	for_b(t_data **a, t_data **b, t_bench **bench_mark)
 {
 	unsigned int	high;
 	unsigned int	nb_rb;
@@ -55,7 +55,7 @@ static void	for_b(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 		{
 			while (nb_rb < high - 1)
 			{
-				rb(b, bunch_mark);
+				rb(b, bench_mark);
 				nb_rb++;
 			}
 		}
@@ -63,29 +63,29 @@ static void	for_b(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 		{
 			while (nb_rb < (stack_size(*b) - high) + 1)
 			{
-				rrb(b, bunch_mark);
+				rrb(b, bench_mark);
 				nb_rb++;
 			}
 		}
-		pa(a, b, bunch_mark);
+		pa(a, b, bench_mark);
 	}
 }
 
-void	chunck(t_liste	**stack, t_bunch **bunch_mark)
+void	chunck(t_data **stack, t_bench **bench_mark)
 {
-	t_liste			*a;
-	t_liste			*b;
-	double			disorder;
+	t_data	*a;
+	t_data	*b;
+	double	disorder;
 
-	(*bunch_mark)->complexity = "O(n√n)";
+	(*bench_mark)->complexity = "O(n√n)";
 	disorder = compute_disorder(*stack);
 	if (disorder == 0)
 		return ;
 	a = *stack;
 	b = NULL;
 	if (a)
-		for_a(&a, &b, bunch_mark);
+		for_a(&a, &b, bench_mark);
 	if (b)
-		for_b(&a, &b, bunch_mark);
+		for_b(&a, &b, bench_mark);
 	*stack = a;
 }

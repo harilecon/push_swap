@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_argument.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 10:17:06 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/03/31 14:18:12 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:35:05 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

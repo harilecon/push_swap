@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   move_02.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:52:20 by tsitoand          #+#    #+#             */
-/*   Updated: 2026/04/02 18:18:05 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:34:33 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rrr_f(t_liste **b)
+static void	rrr_f(t_data **b)
 {
-	t_liste	*last;
-	t_liste	*b_last;
+	t_data	*last;
+	t_data	*b_last;
 
 	if (!b || !*b || !(*b)->next)
 		return ;
@@ -30,13 +30,13 @@ static void	rrr_f(t_liste **b)
 	*b = last;
 }
 
-void	rrb(t_liste **b, t_bunch **bunch_mark)
+void	rrb(t_data **b, t_bench **bench_mark)
 {
-	t_liste	*last;
-	t_liste	*b_last;
+	t_data	*last;
+	t_data	*b_last;
 
 	ft_printf_fd(1, "rrb\n");
-	(*bunch_mark)->rrb++;
+	(*bench_mark)->rrb++;
 	if (!b || !*b || !(*b)->next)
 		return ;
 	last = *b;
@@ -50,20 +50,20 @@ void	rrb(t_liste **b, t_bunch **bunch_mark)
 	*b = last;
 }
 
-void	rrr(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+void	rrr(t_data **a, t_data **b, t_bench **bench_mark)
 {
 	ft_printf_fd(1, "rrr\n");
-	(*bunch_mark)->rrr++;
+	(*bench_mark)->rrr++;
 	rrr_f(b);
 	rrr_f(a);
 }
 
-void	pa(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+void	pa(t_data **a, t_data **b, t_bench **bench_mark)
 {
-	t_liste	*tmp;
+	t_data	*tmp;
 
 	ft_printf_fd(1, "pa\n");
-	(*bunch_mark)->pa++;
+	(*bench_mark)->pa++;
 	if (!a || !b || !*b)
 		return ;
 	tmp = *b;
@@ -77,12 +77,12 @@ void	pa(t_liste **a, t_liste **b, t_bunch **bunch_mark)
 	*a = tmp;
 }
 
-void	pb(t_liste **a, t_liste **b, t_bunch **bunch_mark)
+void	pb(t_data **a, t_data **b, t_bench **bench_mark)
 {
-	t_liste	*tmp;
+	t_data	*tmp;
 
 	ft_printf_fd(1, "pb\n");
-	(*bunch_mark)->pb++;
+	(*bench_mark)->pb++;
 	if (!b || !a || !*a)
 		return ;
 	tmp = *a;

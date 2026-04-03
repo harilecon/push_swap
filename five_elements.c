@@ -3,51 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   five_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsitoand <tsitoand@student.42antananari    +#+  +:+       +#+        */
+/*   By: haranivo <haranivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:47:29 by haranivo          #+#    #+#             */
-/*   Updated: 2026/04/01 18:28:30 by tsitoand         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:30:06 by haranivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	front_move(unsigned int pos, t_liste **a,
-	t_liste **b, t_bunch **bunch_mark)
+static void	front_move(unsigned int pos, t_data **a, t_data **b,
+		t_bench **bench_mark)
 {
 	unsigned int	i;
 
 	i = 1;
 	while (i < pos)
 	{
-		ra(a, bunch_mark);
+		ra(a, bench_mark);
 		i++;
 	}
 	if (i == pos)
 	{
-		pb(a, b, bunch_mark);
+		pb(a, b, bench_mark);
 	}
 }
 
-static void	back_move(unsigned int pos, t_liste **a, t_liste **b,
-		t_bunch **bunch_mark)
+static void	back_move(unsigned int pos, t_data **a, t_data **b,
+		t_bench **bench_mark)
 {
 	unsigned int	i;
 
 	i = stack_size(*a);
 	while (i >= pos)
 	{
-		rra(a, bunch_mark);
+		rra(a, bench_mark);
 		i--;
 	}
-	pb(a, b, bunch_mark);
+	pb(a, b, bench_mark);
 }
 
-void	five_elements(t_liste **stack, t_bunch **bunch_mark, double disorder)
+void	five_elements(t_data **stack, t_bench **bench_mark, double disorder)
 {
 	unsigned int	pos;
 	unsigned int	size;
-	t_liste			*b;
+	t_data			*b;
 
 	b = NULL;
 	if (disorder == 0)
@@ -57,15 +57,15 @@ void	five_elements(t_liste **stack, t_bunch **bunch_mark, double disorder)
 	{
 		pos = low_index(*stack);
 		if (pos <= size / 2 + 1)
-			front_move(pos, stack, &b, bunch_mark);
+			front_move(pos, stack, &b, bench_mark);
 		else if (pos > size / 2 + 1)
-			back_move(pos, stack, &b, bunch_mark);
+			back_move(pos, stack, &b, bench_mark);
 		size--;
 	}
 	if (size == 3)
 	{
-		three_elements(stack, bunch_mark, disorder);
-		pa(stack, &b, bunch_mark);
-		pa(stack, &b, bunch_mark);
+		three_elements(stack, bench_mark, disorder);
+		pa(stack, &b, bench_mark);
+		pa(stack, &b, bench_mark);
 	}
 }

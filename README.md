@@ -48,22 +48,20 @@ make
 ./push_swap   [integers...] [optinal flags] [integers...]
 ```
 
-- **Integers**: Space-separated, any order/chunck.
+- **Integers**: Space-separated, any order/range.
 - Outputs sequence of operations to stdout; sorts stack A if valid.
 
 **Examples**:
 ```
 $ ./push_swap 2 1 3
-pb
-ra
-pa
+sa
 ```
 
 **Flags**:
 | Flag | Effect |
 |------|--------|
 | `--simple` | Insertion sort |
-| `--medium` | chunck/chunk sort |
+| `--medium` | Range/chunk sort |
 | `--complex` | Radix sort |
 | `--adaptive` | Auto-select by disorder (default) |
 | `--bench` | Print stats post-sort |
@@ -75,18 +73,23 @@ Handles errors and returns "**Error\n**" in the following cases:
 - Too many flags
 ## Algorithms
 
-We implemented multiple algorithms, selected adaptively via \`compute_disorder\` (ratio of inversions to total pairs):
+We implemented multiple algorithms, selected adaptively via "compute_disorder" (ratio of inversions to total pairs):
 
 | Algorithm | Trigger | Complexity | Justification & Details |
 |-----------|---------|------------|-------------------------|
 | 2/3/5 elements | size≤5 | O(1) | Exhaustive optimal sequences. Manual sort. |
 | Insertion | disorder <20% \| --simple | O(n²) | Rotate/push smallest to B, pa back. Efficient for nearly-sorted data. |
-| chunck | 20-50% \| --medium | O(n√n) | Divide into chunks (n/10 or n/30), pb ≤chunk via ra, pa max via rb/rrb. Balances rotations/pushes for medium disorder. |
+| Chunck | 20-50% \| --medium | O(n√n) | Divide into chunks (n/10 or n/30), pb ≤chunk via ra, pa max via rb/rrb. Balances rotations/pushes for medium disorder. |
 | Radix | >50% \| --complex | O(n log n) | Index ranks, per bit (max_bits): pb if LSB=0 else ra; pa back. Stable, optimal for random/worst-case. |
 
 **Adaptive (--adaptive/default)**: Thresholds ensure optimal complexity by adapting how the system behaves based on the input profile. It defines limits that help choose the most efficient approach, avoid unnecessary computation, and maintain good performance.
 
 All use doubly-linked lists, exact ops only, move counters for benchmarking.
+
+### Contribution
+#### Task distribution
+- **tsitoand** : Implemented sorting algorithms and stack operation
+- **haranivo** : Managed input parsing and implemented manual sorting for small datasets (2, 3, and 5 elements)
 
 ## Resources
 - **Visualizer**:
@@ -106,5 +109,5 @@ All use doubly-linked lists, exact ops only, move counters for benchmarking.
 **Author**: tsitoand & haranivo
 <center>
     Thanks for reading ME <3 <br>
-    <b>2026-04-01</b>
+    <b>2026-04-02</b>
 </center>
